@@ -66,7 +66,7 @@ export const SliderHomeMobile = () => {
 
 
 
-  const progressCircle: React.MutableRefObject<null> = useRef(null);
+  const progressCircle = useRef(null);
   const progressContent = useRef(null);
 
   const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
@@ -75,7 +75,7 @@ export const SliderHomeMobile = () => {
   };
 
   function handleSliderLoad(id: string){
-    
+
   }
 
   return (
@@ -89,7 +89,7 @@ export const SliderHomeMobile = () => {
        slidesPerView={sliderPerView}
        pagination={{clickable: true}}
        modules={[Autoplay, Pagination, Navigation]}
-       
+
        >
           <SwiperSlide className='w-full h-[89vh]'>
                <img src='https://firebasestorage.googleapis.com/v0/b/remaxauth1.appspot.com/o/images%2F2aJzhEk1Y9VrvpQysHxPLcXJDCk2%2F8e2c8fe6-2805-4239-b61b-4bbf5dd59113?alt=media&token=603aec47-a238-4da6-8e02-95dd73675cc5' alt="" />

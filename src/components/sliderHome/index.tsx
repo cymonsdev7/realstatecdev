@@ -66,7 +66,7 @@ export const SliderHome = () => {
 
 
 
-  const progressCircle: React.MutableRefObject<null> = useRef(null);
+  const progressCircle = useRef(null);
   const progressContent = useRef(null);
 
   const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
