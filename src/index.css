@@ -68,6 +68,13 @@ body{
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
   }
+
+.rowMenuCard:hover, .rowMenuCard.active {
+  background-color: #3d42c1;
+  color: white;
+}
+
+
 .menu_drop_cliente{
   z-index: 999;
 }

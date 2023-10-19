@@ -32,7 +32,7 @@ export const TopHeader = () => {
             target="_blank"
           >
             <IoLogoWhatsapp
-              className="text-white text-xl hover:bg-white hover:text-green-500
+              className="text-white text-xl hover:bg-indigo-700 hover:text-green-500
             hover:rounded-full transition-all duration-500 ease-in-out hover:scale-110 cursor-pointer"
             />
           </a>
@@ -40,7 +40,7 @@ export const TopHeader = () => {
           <a  href="https://www.instagram.com/remax.consult_1?utm_source=qr&r=nametag"
             target="_blank">
             <PiInstagramLogoFill
-              className="text-white text-xl hover:bg-white hover:text-purple-700
+              className="text-white text-xl hover:bg-indigo-700 hover:text-purple-700
             hover:rounded-full transition-all duration-500 ease-in-out hover:scale-110 cursor-pointer"
             />
           </a>
@@ -48,7 +48,7 @@ export const TopHeader = () => {
           <a  href="https://www.facebook.com/remax.consult/"
             target="_blank">
             <FaFacebook
-              className="text-white text-xl hover:bg-white hover:text-indigo-700
+              className="text-white text-xl hover:bg-indigo-700 hover:text-indigo-700
             hover:rounded-full transition-all duration-500 ease-in-out hover:scale-110 cursor-pointer"
             />
           </a>

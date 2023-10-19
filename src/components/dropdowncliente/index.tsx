@@ -16,10 +16,10 @@ import {MdLogin, MdPlace} from 'react-icons/md'
 
 
 const products = [
-  { name: 'Casas', description: 'Casas com os melhores preços do mercado', href: 'http://localhost:5173/propriedadescasas', icon: GiHouse },
-  { name: 'Apartamentos', description: 'Apartamentos com toda infraestrutura', href: 'http://localhost:5173/propriedadesapartamentos', icon: BsBuildingUp },
-  { name: 'Lotes', description: 'Lotes prontos para construção', href: 'http://localhost:5173/propriedadeslotes', icon: MdPlace },
-  { name: 'Rural', description: 'Chácaras e fazendas', href: 'http://localhost:5173/propriedadesrural', icon: GiTreehouse  },
+  { name: 'Casas', description: 'Casas com os melhores preços do mercado', to: '/propriedadescasas', icon: GiHouse },
+  { name: 'Apartamentos', description: 'Apartamentos com toda infraestrutura', to: '/propriedadesapartamentos', icon: BsBuildingUp },
+  { name: 'Lotes', description: 'Lotes prontos para construção', to: 'propriedadeslotes', icon: MdPlace },
+  { name: 'Rurais', description: 'Chácaras e fazendas', to: 'propriedadesrurais', icon: GiTreehouse  },
   // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
@@ -43,7 +43,7 @@ export default function DropDownClient() {
         <div className="flex lg:flex-1">
           <Link to='/' className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/oneremax-3412d.appspot.com/o/images%2FfuzCEeacNXPOaU9CZ1lkx8JVlJg2%2F45bb4743-78b5-4935-a129-895dd04fcd52?alt=media&token=4b1dfe3c-0ff7-4f97-bc03-5a647ea0c9a1" alt="" />
+            <img className="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/oneremax-3412d.appspot.com/o/images%2FremaxLOgo.png?alt=media&token=65beb01f-c413-4c7c-9d8c-ccc3e3e62cef&_gl=1*hh4sxh*_ga*OTc3NTQxNzI0LjE2OTIwMzYwNTE.*_ga_CW55HF8NVT*MTY5NzU3NzUyNS4xMDAuMS4xNjk3NTgwNzYzLjI5LjAuMA.." alt="" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -93,10 +93,10 @@ export default function DropDownClient() {
                         <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                       </div>
                       <div className="flex-auto">
-                        <a href={item.href} className="block font-semibold text-gray-900">
+                        <Link to={item.to} className="block font-semibold text-gray-900">
                           {item.name}
                           <span className="absolute inset-0" />
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
@@ -165,7 +165,7 @@ export default function DropDownClient() {
                           <Disclosure.Button
                             key={item.name}
                             as="a"
-                            href={item.href}
+
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-red-600 hover:text-white"
                           >
                             &rarr;

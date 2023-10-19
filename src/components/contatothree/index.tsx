@@ -41,29 +41,27 @@ export const ContactThree = () => {
       emailContactPage: data.emailContactPage,
       topicContactPage: data.topicContactPage,
       cityContactPage: data.cityContactPage,
-      whatsappContactPage: data.whatsappContactPage,
+      whatsappContactPage: data.whatsappContactPage
     })
-    .then(() => {
-      reset()
-      toast.success('CADASTRADO COM SUCESSO!')
-      console.log('CADASTRADO COM SUCESSO!')
-    })
-    .catch((error) => {
-      console.log(error)
-      toast.error('ERRO AO CADASTRAR...')
-      console.log('ERRO AS CADASTRAR NO BANCO!')
-    })
+      .then(() => {
+        reset()
+        toast.success('CADASTRADO COM SUCESSO!')
+        console.log('CADASTRADO COM SUCESSO!')
+      })
+      .catch((error) => {
+        console.log(error)
+        toast.error('ERRO AO CADASTRAR...')
+        console.log('ERRO AS CADASTRAR NO BANCO!')
+      })
   }
 
   return (
     <Container>
-        <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
-                <span className="text-gray-500">Contato</span> RE
-                <span className="font-bold text-red-600 relative -top-1">
-                  /
-                </span>
-                MAX
-              </h1>
+      <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
+        <span className="text-gray-500">Contato</span> RE
+        <span className="font-bold text-red-600 relative -top-1">/</span>
+        MAX
+      </h1>
       <div className="w-full bg-white shadow-md p-9 mb-8 rounded-lg flex flex-col sm:flex-row items-center gap-2 mt-2">
         <form className="w-full" onSubmit={handleSubmit(onSubmitContactPage)}>
           <div className="grid md:grid-cols-2 items-center gap-4">
@@ -89,11 +87,8 @@ export const ContactThree = () => {
             </div>
           </div>
 
-
-
-
           <div className="grid md:grid-cols-2 items-center gap-4">
-          <div className="mb-3">
+            <div className="mb-3">
               <p className="mb-2 font-bold">Email</p>
               <Input
                 type="email"
@@ -113,19 +108,18 @@ export const ContactThree = () => {
                 placeholder="Ex: → 34993552222..."
               />
             </div>
-
           </div>
 
           <div className="mb-3">
-              <p className="mb-2 font-bold">Cidade</p>
-              <Input
-                type="text"
-                register={register}
-                name="cityContactPage"
-                error={errors.cityContactPage?.message}
-                placeholder="Digite Sua Cidade..."
-              />
-            </div>
+            <p className="mb-2 font-bold">Cidade</p>
+            <Input
+              type="text"
+              register={register}
+              name="cityContactPage"
+              error={errors.cityContactPage?.message}
+              placeholder="Digite Sua Cidade..."
+            />
+          </div>
 
           <div className="mb-3">
             <p className="mb-2 font-bold">Assunto do Email</p>

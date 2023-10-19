@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { router } from './App'
 import { RouterProvider } from 'react-router-dom'
 import AuthProvider from './contexts/AuthContext'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
 import { register } from 'swiper/element'

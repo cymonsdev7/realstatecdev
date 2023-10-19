@@ -1,69 +1,74 @@
-import { useEffect, useState } from "react";
-import { Container } from "../../components/container";
-import { FaChartArea, FaBed, FaShower, FaSearch, FaMapMarkedAlt} from "react-icons/fa";
-import { MdPlace } from "react-icons/md";
-import { ImWhatsapp } from "react-icons/im";
-import { GrInstagram, GrMapLocation } from "react-icons/gr";
+import { useEffect, useState } from 'react'
+import { Container } from '../../components/container'
+import {
+  FaChartArea,
+  FaBed,
+  FaShower,
+  FaSearch,
+  FaMapMarkedAlt
+} from 'react-icons/fa'
+import { MdPlace } from 'react-icons/md'
+import { ImWhatsapp } from 'react-icons/im'
+import { GrInstagram, GrMapLocation } from 'react-icons/gr'
 
-import { collection, query, getDocs, orderBy, where } from "firebase/firestore";
+import { collection, query, getDocs, orderBy, where } from 'firebase/firestore'
 
-import { db } from "../../services/firebaseConnection";
-import { Link } from "react-router-dom";
-import { SliderHome } from "../../components/sliderHome";
-import { SectionSobreRemax } from "../../components/sectionsobre";
-import { SliderHomeMobile } from "../../components/sliderhomemobile";
-import { Contato } from "../contato";
-import CategoriesChanges from "../../components/categorieschanges";
-import { PropriedadesCasas } from "../propriedadescasas";
-import { PropriedadesApartamentos } from "../propriedadesapartamentos";
-import { PropriedadesLotes } from "../propriedadeslotes";
-import { PropriedadesRural } from "../propriedadesrural";
-import { GiFarmTractor, GiHouse } from "react-icons/gi";
-import { BiArrowToRight } from "react-icons/bi";
-import { BsBuildingUp, BsFillBuildingFill } from "react-icons/bs";
+import { db } from '../../services/firebaseConnection'
+import { Link } from 'react-router-dom'
+import { SliderHome } from '../../components/sliderHome'
+import { SectionSobreRemax } from '../../components/sectionsobre'
+import { SliderHomeMobile } from '../../components/sliderhomemobile'
+import { Contato } from '../contato'
+import CategoriesChanges from '../../components/categorieschanges'
 
-// import { RiArrowDownSFill } from "react-icons/ri";
+import { GiFarmTractor, GiHouse } from 'react-icons/gi'
+import { BiArrowToRight, BiSolidCategory } from 'react-icons/bi'
+import { BsBuildingUp, BsFillBuildingFill } from 'react-icons/bs'
+
+import { PiBuildingsFill } from 'react-icons/pi'
+import { boolean } from 'zod'
 
 interface PropertyProps {
-  id: string;
-  uid: string;
-  name: string;
-  adress: string;
-  area: string;
-  bedrooms: string;
-  bathrooms: string;
-  price: string | number;
-  imageBroker: string;
-  nameBroker: string;
-  images: PropertyImagesProps[];
+  id: string
+  uid: string
+  name: string
+  adress: string
+  area: string
+  bedrooms: string
+  bathrooms: string
+  price: string | number
+  imageBroker: string
+  nameBroker: string
+  images: PropertyImagesProps[]
+  categories: string | number
 }
 
 interface PropertyImagesProps {
-  name: string;
-  uid: string;
-  url: string;
+  name: string
+  uid: string
+  url: string
 }
 
 export function Home() {
-  const [property, setProperty] = useState<PropertyProps[]>([]);
-  const [loadImages, setLoadImages] = useState<string[]>([]);
+  const [property, setProperty] = useState<PropertyProps[]>([])
+  const [houses, setHouses] = useState<PropertyProps[]>([])
+  const [loadImages, setLoadImages] = useState<string[]>([])
   const [input, setInput] = useState('')
+  const [filterProperties, setFilterProperties] = useState('')
 
   useEffect(() => {
-     loadProperties();
-  }, []);
+    loadProperties()
+    loadHouses()
+  }, [])
 
-
-
-
-    // FUNCTION LOADPROPERTIES
+  // FUNCTION LOADPROPERTIES
 
   function loadProperties() {
-    const propertiesRef = collection(db, "property");
-    const queryRef = query(propertiesRef, orderBy("create", "desc"));
+    const propertiesRef = collection(db, 'property')
+    const queryRef = query(propertiesRef, orderBy('create', 'desc'))
 
     getDocs(queryRef).then((snapshot) => {
-      let listProperties = [] as PropertyProps[];
+      let listProperties = [] as PropertyProps[]
 
       snapshot.forEach((doc) => {
         listProperties.push({
@@ -75,21 +80,51 @@ export function Home() {
           bedrooms: doc.data().bedrooms,
           bathrooms: doc.data().bathrooms,
           nameBroker: doc.data().nameBroker,
+          categories: doc.data().categories,
           images: doc.data().images,
           imageBroker: doc.data().imageBroker,
-          uid: doc.data().uid,
-        });
-      });
+          uid: doc.data().uid
+        })
+      })
 
-      setProperty(listProperties);
-    });
+      setProperty(listProperties)
+    })
   }
 
+  // FUNCTION LOADPROPERTIES
+
+  function loadHouses() {
+    const propertiesRef = collection(db, 'houses')
+    const queryRef = query(propertiesRef, orderBy('create', 'desc'))
+
+    getDocs(queryRef).then((snapshot) => {
+      let listHouses = [] as PropertyProps[]
+
+      snapshot.forEach((doc) => {
+        listHouses.push({
+          id: doc.id,
+          name: doc.data().name,
+          adress: doc.data().adress,
+          price: doc.data().price,
+          area: doc.data().area,
+          bedrooms: doc.data().bedrooms,
+          bathrooms: doc.data().bathrooms,
+          nameBroker: doc.data().nameBroker,
+          categories: doc.data().categories,
+          images: doc.data().images,
+          imageBroker: doc.data().imageBroker,
+          uid: doc.data().uid
+        })
+      })
+
+      setHouses(listHouses)
+    })
+  }
 
   // FUNCTION HANDLESEARCHPROPERTY /////////////////
 
-  async function handleSearchProperty(){
-    if(input === ''){
+  async function handleSearchProperty() {
+    if (input === '') {
       loadProperties()
       return
     }
@@ -97,14 +132,15 @@ export function Home() {
     setProperty([])
     setLoadImages([])
 
-    const q = query(collection(db, 'property'),
-    where('name', '>=', input.toUpperCase()),
-    where('name', '<=', input.toUpperCase() + '/uf8ff'),
+    let q = query(
+      collection(db, 'property'),
+      where('name', '>=', input.toUpperCase()),
+      where('name', '<=', input.toUpperCase() + '/uf8ff')
     )
 
     const querySnapshot = await getDocs(q)
 
-    let listProperties = [] as PropertyProps[];
+    let listProperties = [] as PropertyProps[]
 
     querySnapshot.forEach((doc) => {
       listProperties.push({
@@ -116,37 +152,30 @@ export function Home() {
         bedrooms: doc.data().bedrooms,
         bathrooms: doc.data().bathrooms,
         nameBroker: doc.data().nameBroker,
+        categories: doc.data().categories,
         images: doc.data().images,
         imageBroker: doc.data().imageBroker,
-        uid: doc.data().uid,
+        uid: doc.data().uid
       })
     })
 
     setProperty(listProperties)
     console.log(listProperties)
-
-
   }
 
   function handleImageLoad(id: string) {
-    setLoadImages((previewImageLoad) => [...previewImageLoad, id]);
+    setLoadImages((previewImageLoad) => [...previewImageLoad, id])
   }
 
   return (
     <>
-
-
       <div className="w-full">
         <SliderHome />
-        <SliderHomeMobile/>
+        <SliderHomeMobile />
       </div>
 
-
-
       <Container>
-
-        <div className="w-full items-center flex h-10 rounded-lg text-white font-medium gap-4 px-4 mb-4">
-        </div>
+        <div className="w-full items-center flex h-10 text-gray-500 rounded-lg font-medium gap-4 px-4 mb-4"></div>
 
         <div className="text-5xl font-bold text-center text-gray-500 mt-3">
           <h1>Imóveis em Destaque</h1>
@@ -157,41 +186,29 @@ export function Home() {
             Em toda cidade de Araguari-MG
           </h1>
         </div>
+        <hr />
 
-        {/* <section
-          className="bg-white p-4 rounded-lg w-full max-w-3xl m-auto flex justify-between items-center gap-2"
-        >
-          <input
-            className="w-full border-2 rounded-lg h-9 px-3 outline-none"
-            placeholder="Digite, CASA, APARTAMENTO, TERRENO OU CHÁCARA..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
+        {/* <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
+          <span className="text-gray-500">Todos Imóveis</span> RE
+          <span className="font-bold text-red-600 relative -top-1">/</span>
+          MAX
+        </h1> */}
 
-
-
-
-
-
-          <button
-            className="bg-indigo-700 h-9 px-8 rounded-lg
-            text-white font-medium text-lg flex gap-2 items-center"
-            onClick={handleSearchProperty}
-            >
-            Buscar
-            <div className="flex items-center mt-1">
-
-              <FaSearch size={14}/>
-            </div>
-          </button>
-
-        </section> */}
-
-
-
-
-
-
+        {/* <div className='px-4 mt-8'>
+          <h3 className='font-semibold text-lg mb-4
+           text-gray-700'>Escolha a categoria</h3>
+          <select
+            className="w-96 h-12 rounded-lg px-2 font-semibold
+           focus:bg-indigo-700 focus:text-white text-indigo-700"
+            onChange={(e) => setFilterProperties(e.target.value)}
+          >
+            <option value="Todos">Todos</option>
+            <option value="casas">Casas</option>
+            <option value="aptos">Aptos</option>
+            <option value="lotes">Lotes</option>
+            <option value="rurais">Rurais</option>
+          </select>
+        </div> */}
 
         <main className="grid grid-cols-1 mt-16 gap-4 md:grid-cols-2 lg:grid-cols-3 mb-14">
           {property.map((propert) => (
@@ -200,14 +217,14 @@ export function Home() {
               to={`/details/${propert.id}`}
               className="flex justify-center"
             >
-              <div className="max-w-sm bg-white px-7 pt-7 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
+              <div className="max-w-sm bg-white px-7 pt-7 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500 -z-50">
                 <div className="relative">
                   <div
                     className="w-full h-52 rounded-lg bg-gray-100"
                     style={{
                       display: loadImages.includes(propert.id)
-                        ? "none"
-                        : "block",
+                        ? 'none'
+                        : 'block'
                     }}
                   ></div>
                   <img
@@ -217,8 +234,8 @@ export function Home() {
                     onLoad={() => handleImageLoad(propert.id)}
                     style={{
                       display: loadImages.includes(propert.id)
-                        ? "block"
-                        : "none",
+                        ? 'block'
+                        : 'none'
                     }}
                   />
                   <p className="absolute top-0 bg-indigo-700 text-white font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">
@@ -281,51 +298,21 @@ export function Home() {
                       <div className="hover:text-indigo-700 transition duration-700 cursor-pointer">
                         <GrInstagram size={18} />
                       </div>
-
                     </div>
                   </div>
                 </div>
               </div>
             </Link>
           ))}
-        </main><hr/>
-
-        <div className="flex items-center gap-3 text-2xl font-bold text-left text-gray-700 mx-7 mt-20">
-          <GiHouse size={35}  color='#023ebf'/>
-          <BiArrowToRight/>
-          <h1>Categoria Casas</h1>
-        </div>
-        <PropriedadesCasas/><hr/>
-
-        <div className="flex items-center gap-3 text-2xl font-bold text-left text-gray-700 mx-7 mt-20">
-          <BsFillBuildingFill size={35}  color='#023ebf'/>
-          <BiArrowToRight/>
-          <h1>Categoria Apartamentos</h1>
-        </div>
-        <PropriedadesApartamentos/><hr/>
+        </main>
+        <hr />
 
 
-        <div className="flex items-center gap-3 text-2xl font-bold text-left text-gray-700 mx-7 mt-20">
-          <FaMapMarkedAlt size={37} color='#023ebf'/>
-          <BiArrowToRight/>
-          <h1>Categoria Lotes</h1>
-        </div>
-        <PropriedadesLotes/><hr/>
+        <SectionSobreRemax />
+        <hr />
 
-
-        <div className="flex items-center gap-3 text-2xl font-bold text-left text-gray-700 mx-7 mt-20">
-          <GiFarmTractor size={40}  color='#023ebf'/>
-          <BiArrowToRight/>
-          <h1>Categoria Rural</h1>
-        </div>
-        <PropriedadesRural/><hr/>
-
-
-        <SectionSobreRemax /><hr/>
-
-
-        <Contato/>
+        <Contato />
       </Container>
     </>
-  );
+  )
 }

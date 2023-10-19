@@ -10,17 +10,27 @@ import { Layout } from "./components/layout";
 import { NewProperty } from "./pages/dashboard/new";
 import { Private } from "./routes/Private";
 import { SobreNos } from "./pages/sobre";
-import { CadastroSliders } from "./pages/cadastrosliders";
-import { Categorias } from "./pages/categorias";
+
+import { Category } from "./pages/categorias";
 import { Contato } from "./pages/contato";
-import { CasasProperties } from "./pages/casas";
-import { AptoProperties } from "./pages/apartamentos";
-import { LotesProperties } from "./pages/lotes";
-import { RuralProperties } from "./pages/rural";
-import { PropriedadesCasas } from "./pages/propriedadescasas";
-import { PropriedadesApartamentos } from "./pages/propriedadesapartamentos";
-import { PropriedadesLotes } from "./pages/propriedadeslotes";
-import { PropriedadesRural } from "./pages/propriedadesrural";
+import { HousesPropertiesRegister } from "./pages/casas/HousesPropertiesRegister";
+import { BuildsPropertiesRegister } from "./pages/apartamentos/BuildsPropertiesRegister";
+import { Houses } from "./pages/dashboard/houses";
+import { PageStart } from "./pages/paginainicial";
+import { DetalhesCasas } from "./pages/detalhescasas";
+import { PlacesPropertiesRegister } from "./pages/lotes/PlacesPropertiesRegister";
+import { FarmsPropertiesRegister } from "./pages/rurais/FarmPropertiesRegister";
+import { PropriedadesCasas } from "./pages/propriedadescasas/PropriedadesCasas";
+import { PropriedadesAptos } from "./pages/propriedadesapartamentos/PropriedadesAptos";
+import { DetalhesAptos } from "./pages/detalhesaptos";
+import { PropriedadesLotes } from "./pages/propriedadeslotes/PropriedadesLotes";
+import { DetalhesLotes } from "./pages/detalheslotes";
+import { PropriedadesRurais } from "./pages/propriedadesrurais/PropriedadesRurais";
+import { DetalhesRurais } from "./pages/detalhesrurais";
+
+
+
+
 
 
 const router = createBrowserRouter([
@@ -32,9 +42,49 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
+        path: '/propriedadescasas',
+        element: <PropriedadesCasas/>
+      },
+      {
+        path: '/propriedadesapartamentos',
+        element: <PropriedadesAptos/>
+      },
+      {
+        path: '/propriedadeslotes',
+        element: <PropriedadesLotes/>
+      },
+      {
+        path: '/propriedadesrurais',
+        element: <PropriedadesRurais/>
+      },
+
+
+
+      {
         path: '/details/:id',
         element: <PropertyDetails/>
       },
+      {
+        path: '/detalhescasas/:id',
+        element: <DetalhesCasas/>
+      },
+      {
+        path: '/detalhesaptos/:id',
+        element: <DetalhesAptos/>
+      },
+      {
+        path: '/detalheslotes/:id',
+        element: <DetalhesLotes/>
+      },
+      {
+        path: '/detalhesrurais/:id',
+        element: <DetalhesRurais/>
+      },
+
+
+
+
+
       {
         path: '/dashboard',
         element: <Private><Dashboard/></Private>
@@ -44,21 +94,31 @@ const router = createBrowserRouter([
         element: <Private><NewProperty/></Private>
       },
       {
-        path: '/casas',
-        element: <Private><CasasProperties/></Private>
+        path: 'dashboard/houses',
+        element: <Private><Houses/></Private>
+      },
+
+
+
+
+
+      {
+        path: 'casas',
+        element: <Private><HousesPropertiesRegister/></Private>
       },
       {
-        path: '/apartamentos',
-        element: <Private><AptoProperties/></Private>
+        path: 'apartamentos',
+        element: <Private><BuildsPropertiesRegister/></Private>
       },
       {
-        path: '/rural',
-        element: <Private><RuralProperties/></Private>
+        path: 'lotes',
+        element: <Private><PlacesPropertiesRegister/></Private>
       },
       {
-        path: '/lotes',
-        element: <Private><LotesProperties/></Private>
+        path: 'rurais',
+        element: <Private><FarmsPropertiesRegister/></Private>
       },
+
       {
         path: '/sobre',
         element: <SobreNos/>
@@ -67,29 +127,10 @@ const router = createBrowserRouter([
         path: '/contato',
         element: <Contato/>
       },
-      {
-        path: '/cadastrosliders',
-        element: <CadastroSliders/>
-      },
+
       {
         path: '/categorias',
-        element: <Categorias/>
-      },
-      {
-        path: '/propriedadescasas',
-        element: <PropriedadesCasas/>
-      },
-      {
-        path: '/propriedadesapartamentos',
-        element: <PropriedadesApartamentos/>
-      },
-      {
-        path: '/propriedadeslotes',
-        element: <PropriedadesLotes/>
-      },
-      {
-        path: '/propriedadesrural',
-        element: <PropriedadesRural/>
+        element: <Category/>
       },
     ]
   },

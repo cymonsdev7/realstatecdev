@@ -13,13 +13,14 @@ import {GiHouse, GiTreehouse} from 'react-icons/gi'
 import {BsBuildingUp} from 'react-icons/bs'
 import {MdLogin, MdPlace, MdOutlineLogout} from 'react-icons/md'
 import {FaUserPlus} from 'react-icons/fa'
+import Logo from '../../svgs/Logo'
 
 
 const products = [
   { name: 'Casas', description: 'Casas com os melhores preços do mercado', href: 'http://localhost:5173/casas', icon: GiHouse },
   { name: 'Apartamentos', description: 'Apartamentos com toda infraestrutura', href: 'http://localhost:5173/apartamentos', icon: BsBuildingUp },
   { name: 'Lotes', description: 'Lotes prontos para construção', href: 'http://localhost:5173/lotes', icon: MdPlace },
-  { name: 'Rural', description: 'Chácaras e fazendas', href: 'http://localhost:5173/rural', icon: GiTreehouse  },
+  { name: 'Rurais', description: 'Chácaras e fazendas', href: 'http://localhost:5173/rurais', icon: GiTreehouse  },
   // { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
@@ -37,12 +38,13 @@ export default function DropDownUserSigned() {
 
   return (
     <>
-    <header className="bg-white shadow-md sticky top-0">
+
+    <header className="bg-white shadow-md sticky top-0 z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to='/' className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/oneremax-3412d.appspot.com/o/images%2FfuzCEeacNXPOaU9CZ1lkx8JVlJg2%2F45bb4743-78b5-4935-a129-895dd04fcd52?alt=media&token=4b1dfe3c-0ff7-4f97-bc03-5a647ea0c9a1" alt="" />
+            <img className="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/oneremax-3412d.appspot.com/o/images%2FremaxLOgo.png?alt=media&token=65beb01f-c413-4c7c-9d8c-ccc3e3e62cef&_gl=1*hh4sxh*_ga*OTc3NTQxNzI0LjE2OTIwMzYwNTE.*_ga_CW55HF8NVT*MTY5NzU3NzUyNS4xMDAuMS4xNjk3NTgwNzYzLjI5LjAuMA.." alt="" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -131,7 +133,7 @@ export default function DropDownUserSigned() {
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-14 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>

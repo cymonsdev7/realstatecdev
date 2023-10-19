@@ -18,6 +18,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { register } from 'swiper/element/bundle'
 
+
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -50,7 +51,7 @@ interface ImagePropertyProps {
   url: string
 }
 
-export const PropertyDetails = () => {
+export const DetalhesAptos = () => {
   const [sliderPerView, setSliderPerView] = useState<number>(2)
   const { id } = useParams()
   const [property, setProperty] = useState<PropertiesProps>()
@@ -62,7 +63,7 @@ export const PropertyDetails = () => {
         return
       }
 
-      const docRef = doc(db, 'property', id)
+      const docRef = doc(db, 'apartamentos', id)
       getDoc(docRef).then((snapshot) => {
         // if (!snapshot.data()) {
         //   navigate('/')
