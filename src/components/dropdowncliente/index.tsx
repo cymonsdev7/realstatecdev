@@ -392,7 +392,7 @@ export default function DropDownClient() {
 
 
                           {/* APTOS ROTA MENU */}
-                          <Link to="/propriedadesaptos">
+                          <Link to="/propriedadesapartamentos">
                             <Disclosure.Button
                               as="a"
                               className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
