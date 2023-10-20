@@ -18,7 +18,7 @@ import { TfiMenuAlt } from 'react-icons/tfi'
 
 
 const products = [
-  { name: 'Todos Imóveis', description: 'Veja a lista com todos imóveis RE/MAX', href: 'http://localhost:5173/todosimoveis', icon: TfiMenuAlt },
+  { name: 'Destaques', description: 'Veja a lista com todos imóveis RE/MAX', href: 'http://localhost:5173/dashboard/new', icon: TfiMenuAlt },
   { name: 'Casas', description: 'Casas com os melhores preços do mercado', href: 'http://localhost:5173/casas', icon: GiHouse },
   { name: 'Apartamentos', description: 'Apartamentos com toda infraestrutura', href: 'http://localhost:5173/apartamentos', icon: BsBuildingUp },
   { name: 'Lotes', description: 'Lotes prontos para construção', href: 'http://localhost:5173/lotes', icon: MdPlace },
