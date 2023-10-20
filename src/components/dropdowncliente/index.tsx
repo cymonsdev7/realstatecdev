@@ -11,11 +11,13 @@ import { AuthContext } from '../../contexts/AuthContext'
 import { TopHeader } from '../topheader'
 import { Link } from 'react-router-dom'
 import {GiHouse, GiTreehouse} from 'react-icons/gi'
+import {TfiMenuAlt} from 'react-icons/tfi'
 import {BsBuildingUp} from 'react-icons/bs'
 import {MdLogin, MdPlace} from 'react-icons/md'
 
 
 const products = [
+  { name: 'Todos Imóveis', description: 'Veja a lista com todos imóveis RE/MAX', href: 'http://localhost:5173/todosimoveis', icon: TfiMenuAlt },
   { name: 'Casas', description: 'Casas com os melhores preços do mercado', to: '/propriedadescasas', icon: GiHouse },
   { name: 'Apartamentos', description: 'Apartamentos com toda infraestrutura', to: '/propriedadesapartamentos', icon: BsBuildingUp },
   { name: 'Lotes', description: 'Lotes prontos para construção', to: 'propriedadeslotes', icon: MdPlace },

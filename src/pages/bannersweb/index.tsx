@@ -1,17 +1,17 @@
 import { useContext, useState } from 'react'
 import { ChangeEvent } from 'react'
 import { FiTrash, FiUpload } from 'react-icons/fi'
-import { Container } from '../../../components/container'
-import { PanelHeader } from '../../../components/panelHeader'
+import { Container } from '../../components/container'
+import { PanelHeader } from '../../components/panelHeader'
 
 import { useForm } from 'react-hook-form'
-import { Input } from '../../../components/input'
+import { Input } from '../../components/input'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AuthContext } from '../../../contexts/AuthContext'
+import { AuthContext } from '../../contexts/AuthContext'
 import { v4 as uuidv4 } from 'uuid'
 
-import { storage, db } from '../../../services/firebaseConnection'
+import { storage, db } from '../../services/firebaseConnection'
 import {
   ref,
   uploadBytes,
@@ -23,16 +23,8 @@ import {
 import { addDoc, collection } from 'firebase/firestore'
 
 const schema = z.object({
-  adress: z.string().nonempty('O campo endereço é obrigatório'),
   name: z.string().nonempty('O campo nome é obrigatório'),
-  price: z.string().nonempty('O preço é obrigatório'),
-  area: z.string().nonempty('A área é obrigatória'),
-  bedrooms: z.string().nonempty('O campo dormitórios é obrigatório'),
-  bathrooms: z.string().nonempty('O campo banheiros é obrigatório'),
-  cookrooms: z.string().nonempty('O campo cozinha é obrigatório'),
-  garages: z.string().nonempty('O campo garagens é obrigatório'),
-  nameBroker: z.string().nonempty('O nome do corretor é obrigatório'),
-  imageBroker: z.string().nonempty('A imagem do corretor é obrigatória'),
+  imageSlider: z.string().nonempty('A imagem do corretor é obrigatória'),
   description: z.string().nonempty('A descrição é obrigatória'),
   categories: z.string().nonempty('A categoria é obrigatória')
 })
@@ -46,9 +38,7 @@ interface ImageProps {
   url: string
 }
 
-
-// COMPONENT FUNCITON PRINCIPAL
-export const NewProperty = () => {
+export const SlidersRegister = () => {
   const { user } = useContext(AuthContext)
   const {
     register,
@@ -87,35 +77,23 @@ export const NewProperty = () => {
     })
   }
 
-
-
-  // FUNCTION ONSUBMIT
-
   function onSubmit(data: FormData) {
-    if(propertyImages.length === 0){
-      alert('Carregue alguma imagem!')
-      return
-    }
+    // if(propertyImages.length === 0){
+    //   alert('Carregue alguma imagem!')
+    //   return
+    // }
 
-    const propertyListImages = propertyImages.map((property) => {
+    const propertyListImages = propertyImages.map((slidersImg) => {
       return {
-        uid: property.uid,
-        name: property.name,
-        url: property.url
+        uid: slidersImg.uid,
+        name: slidersImg.name,
+        url: slidersImg.url
       }
     })
 
-    addDoc(collection(db, 'property'), {
+    addDoc(collection(db, 'sliders'), {
       name: data.name.toUpperCase(),
-      adress: data.adress,
-      price: data.price,
-      area: data.area,
-      bedrooms: data.bedrooms,
-      bathrooms: data.bathrooms,
-      cookrooms: data.cookrooms,
-      garages: data.garages,
-      nameBroker: data.nameBroker,
-      imageBroker: data.imageBroker,
+      imageSlider: data.imageSlider,
       description: data.description,
       categories: data.categories,
       create: new Date(),
@@ -134,9 +112,6 @@ export const NewProperty = () => {
       })
   }
 
-
-
-  // FUNCTION HANDLEDELETEIMAGE
   async function handleDeleteImage(item: ImageProps) {
     const imagePath = `images/${item.uid}/${item.name}`
 
@@ -152,11 +127,6 @@ export const NewProperty = () => {
     }
   }
 
-
-
-
-  // FUNCTION HANDLEFILE
-
   async function handleFile(e: ChangeEvent<HTMLInputElement>) {
     if (e.target.files && e.target.files[0]) {
       const image = e.target.files[0]
@@ -168,18 +138,17 @@ export const NewProperty = () => {
       }
     }
   }
-
   return (
     <Container>
-
       <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
-        <span className="text-gray-500">Cadastrar Destaques</span> RE
+        <span className="text-gray-500">Cadastrar Casas</span> RE
         <span className="font-bold text-red-600 relative -top-1">/</span>
         MAX
       </h1>
 
       <div className="w-full shadow-sm bg-white p-3 rounded-lg flex flex-col sm:flex-row items-center gap-2">
-        <button className="border-2 w-48 rounded-lg flex items-center justify-center cursor-pointer border-gray-700 h-32 md:w-48">
+        <button className="border-2 w-48 rounded-lg flex items-center justify-center cursor-pointer
+         border-gray-700 h-32 md:w-48">
           <div className="absolute cursor-pointer">
             <FiUpload size={30} />
           </div>
@@ -227,109 +196,9 @@ export const NewProperty = () => {
                 placeholder="Nome do imóvel..."
               />
             </div>
-            <div className="mb-3">
-              <p className="mb-2 font-bold">Endereço</p>
-              <Input
-                type="text"
-                register={register}
-                name="adress"
-                error={errors.adress?.message}
-                placeholder="Endereço do imóvel..."
-              />
-            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 items-center gap-4">
-            <div className="w-full">
-              <p className="mb-2 font-bold">Preço</p>
-              <Input
-                type="text"
-                register={register}
-                name="price"
-                error={errors.price?.message}
-                placeholder="Preço do imóvel..."
-              />
-            </div>
-            <div className="w-full">
-              <p className="mb-2 font-bold">Área Total</p>
-              <Input
-                type="text"
-                register={register}
-                name="area"
-                error={errors.area?.message}
-                placeholder="Tamanho total da área..."
-              />
-            </div>
-          </div>
 
-          <div className="grid md:grid-cols-2 items-center gap-4">
-            <div className="w-full">
-              <p className="mb-2 font-bold">Dormitórios</p>
-              <Input
-                type="text"
-                register={register}
-                name="bedrooms"
-                error={errors.bedrooms?.message}
-                placeholder="Quantidade de dormitórios..."
-              />
-            </div>
-            <div className="w-full">
-              <p className="mb-2 font-bold">Banheiros</p>
-              <Input
-                type="text"
-                register={register}
-                name="bathrooms"
-                error={errors.bathrooms?.message}
-                placeholder="Quantidade de banheiros..."
-              />
-            </div>
-          </div>
-
-          <div className="grid gri md:grid-cols-2 items-center gap-4">
-            <div className="w-full">
-              <p className="mb-2 font-bold">Cozinhas</p>
-              <Input
-                type="text"
-                register={register}
-                name="cookrooms"
-                error={errors.cookrooms?.message}
-                placeholder="Quantidade de cozinhas..."
-              />
-            </div>
-            <div className="w-full">
-              <p className="mb-2 font-bold">Garagens</p>
-              <Input
-                type="text"
-                register={register}
-                name="garages"
-                error={errors.garages?.message}
-                placeholder="Quantidade de garagens..."
-              />
-            </div>
-          </div>
-
-          <div className="grid gri md:grid-cols-2 items-center gap-4">
-            <div className="w-full">
-              <p className="mb-2 font-bold">Nome do corretor</p>
-              <Input
-                type="text"
-                register={register}
-                name="nameBroker"
-                error={errors.nameBroker?.message}
-                placeholder="Nome do corretor..."
-              />
-            </div>
-            <div className="w-full">
-              <p className="mb-2 font-bold">Imagem do corretor</p>
-              <Input
-                type="text"
-                register={register}
-                name="imageBroker"
-                error={errors.imageBroker?.message}
-                placeholder="imagem perfil do corretor..."
-              />
-            </div>
-          </div>
 
           <div className="w-full">
             <p className="mb-2 font-bold">Descrição do imóvel</p>
@@ -353,10 +222,11 @@ export const NewProperty = () => {
               id="categories"
               placeholder="Escolha a categoria do imóvel..."
             >
+              <option value="">Selecione a Categoria</option>
               <option value="Casas">Casas</option>
               <option value="Apartamentos">Apartamentos</option>
               <option value="Lotes">Lotes</option>
-              <option value="Rural">Rurais</option>
+              <option value="Rural">Rural</option>
             </select>
             {errors.description && (
               <p className="mb-1 text-red-400">{errors.categories.message}</p>

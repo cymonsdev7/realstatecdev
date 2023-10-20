@@ -56,13 +56,14 @@ export const ContactThree = () => {
   }
 
   return (
-    <Container>
+    <>
       <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
         <span className="text-gray-500">Contato</span> RE
         <span className="font-bold text-red-600 relative -top-1">/</span>
         MAX
       </h1>
-      <div className="w-full bg-white shadow-md p-9 mb-8 rounded-lg flex flex-col sm:flex-row items-center gap-2 mt-2">
+      <div className="w-full bg-white shadow-md p-9 mb-8 rounded-lg
+       flex flex-col sm:flex-row sm:w-full items-center gap-2 mt-2">
         <form className="w-full" onSubmit={handleSubmit(onSubmitContactPage)}>
           <div className="grid md:grid-cols-2 items-center gap-4">
             <div className="mb-3">
@@ -145,6 +146,6 @@ export const ContactThree = () => {
           </button>
         </form>
       </div>
-    </Container>
+  </>
   )
 }

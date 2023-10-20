@@ -14,9 +14,11 @@ import {BsBuildingUp} from 'react-icons/bs'
 import {MdLogin, MdPlace, MdOutlineLogout} from 'react-icons/md'
 import {FaUserPlus} from 'react-icons/fa'
 import Logo from '../../svgs/Logo'
+import { TfiMenuAlt } from 'react-icons/tfi'
 
 
 const products = [
+  { name: 'Todos Imóveis', description: 'Veja a lista com todos imóveis RE/MAX', href: 'http://localhost:5173/todosimoveis', icon: TfiMenuAlt },
   { name: 'Casas', description: 'Casas com os melhores preços do mercado', href: 'http://localhost:5173/casas', icon: GiHouse },
   { name: 'Apartamentos', description: 'Apartamentos com toda infraestrutura', href: 'http://localhost:5173/apartamentos', icon: BsBuildingUp },
   { name: 'Lotes', description: 'Lotes prontos para construção', href: 'http://localhost:5173/lotes', icon: MdPlace },
@@ -68,8 +70,8 @@ export default function DropDownUserSigned() {
           <Link to='/dashboard/new' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
             Imóveis
           </Link>
-          <Link to='/cadrastrosliders' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
-            Sliders
+          <Link to='/bannersweb' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
+            Banners
           </Link>
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-md outline-none font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
@@ -182,24 +184,28 @@ export default function DropDownUserSigned() {
                   )}
                 </Disclosure>
                 <Link to='/'
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-700 hover:text-white"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
+                   hover:bg-indigo-700 hover:text-white"
                 >
                   Página Inicial
                 </Link>
                 <Link to='/dashboard'
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-700 hover:text-white"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
+                   hover:bg-indigo-700 hover:text-white"
                 >
                   Dashboard
                 </Link>
                 <Link to='/dashboard/new'
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-700 hover:text-white"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
+                   hover:bg-indigo-700 hover:text-white"
                 >
                   Imóveis
                 </Link>
-                <Link to='/cadastrosliders'
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-700 hover:text-white"
+                <Link to='/bannersweb'
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
+                   hover:bg-indigo-700 hover:text-white"
                 >
-                  Sliders
+                  Banners
                 </Link>
               </div>
               <div className="py-6">

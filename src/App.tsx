@@ -27,6 +27,8 @@ import { PropriedadesLotes } from "./pages/propriedadeslotes/PropriedadesLotes";
 import { DetalhesLotes } from "./pages/detalheslotes";
 import { PropriedadesRurais } from "./pages/propriedadesrurais/PropriedadesRurais";
 import { DetalhesRurais } from "./pages/detalhesrurais";
+import { AllPropertiesRemax } from "./pages/todosimoveis";
+import { SlidersRegister } from "./pages/bannersweb";
 
 
 
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home/>
+      },
+      {
+        path: '/todosimoveis',
+        element: <AllPropertiesRemax/>
       },
       {
         path: '/propriedadescasas',
@@ -97,6 +103,10 @@ const router = createBrowserRouter([
         path: 'dashboard/houses',
         element: <Private><Houses/></Private>
       },
+      {
+        path: 'bannersweb',
+        element: <Private><SlidersRegister/></Private>
+      },
 
 
 
@@ -118,6 +128,9 @@ const router = createBrowserRouter([
         path: 'rurais',
         element: <Private><FarmsPropertiesRegister/></Private>
       },
+
+
+
 
       {
         path: '/sobre',

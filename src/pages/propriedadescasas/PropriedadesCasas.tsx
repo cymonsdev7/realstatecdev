@@ -180,22 +180,6 @@ export function PropriedadesCasas() {
           MAX
         </h1>
 
-        {/* <div className='px-4 mt-8'>
-          <h3 className='font-semibold text-lg mb-4
-           text-gray-700'>Escolha a categoria</h3>
-          <select
-            className="w-96 h-12 rounded-lg px-2 font-semibold
-           focus:bg-indigo-700 focus:text-white text-indigo-700"
-            onChange={(e) => setFilterProperties(e.target.value)}
-          >
-            <option value="Todos">Todos</option>
-            <option value="casas">Casas</option>
-            <option value="aptos">Aptos</option>
-            <option value="lotes">Lotes</option>
-            <option value="rurais">Rurais</option>
-          </select>
-        </div> */}
-
         <section className="grid grid-cols-1 mt-16 gap-4 md:grid-cols-2 lg:grid-cols-3 mb-14">
           {houses.map((housess) => (
             <Link
