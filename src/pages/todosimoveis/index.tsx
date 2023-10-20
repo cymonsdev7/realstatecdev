@@ -274,8 +274,8 @@ export function AllPropertiesRemax() {
 
       <Container>
         <div className="w-full items-center flex h-10 text-gray-500 rounded-lg font-medium gap-4 px-4 mb-4"></div>
-        <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
-          <span className="text-gray-500">Destaque</span> RE
+          <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
+          <span className="text-gray-500">Todos Imóveis</span> RE
           <span className="font-bold text-red-600 relative -top-1">/</span>
           MAX
         </h1>
