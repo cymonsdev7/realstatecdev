@@ -141,7 +141,7 @@ export const SlidersRegister = () => {
   return (
     <Container>
       <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
-        <span className="text-gray-500">Cadastrar Casas</span> RE
+        <span className="text-gray-500">Cadastrar Sliders</span> RE
         <span className="font-bold text-red-600 relative -top-1">/</span>
         MAX
       </h1>
