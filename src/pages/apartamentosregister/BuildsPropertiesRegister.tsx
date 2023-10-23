@@ -2,7 +2,6 @@ import { useContext, useState } from 'react'
 import { ChangeEvent } from 'react'
 import { FiTrash, FiUpload } from 'react-icons/fi'
 import { Container } from '../../components/container'
-import { PanelHeader } from '../../components/panelHeader'
 
 import { useForm } from 'react-hook-form'
 import { Input } from '../../components/input'

@@ -4,7 +4,7 @@ import { ImWhatsapp } from 'react-icons/im'
 import { MdPlace } from 'react-icons/md'
 import { PiFacebookLogoBold } from 'react-icons/pi'
 import { Container } from '../../components/container'
-import { PanelHeader } from '../../components/panelHeader'
+
 import { TbTrashXFilled } from 'react-icons/tb'
 
 import { useEffect, useState, useContext } from 'react'

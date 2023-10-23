@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { ChangeEvent } from 'react'
 // import { FiTrash, FiUpload } from 'react-icons/fi'
 import { Container } from '../../components/container'
-import { PanelHeader } from '../../components/panelHeader'
+
 
 import { useForm } from 'react-hook-form'
 import { Input } from '../../components/input'
@@ -142,7 +142,7 @@ export const ContatoPage = () => {
   }
   return (
     <Container>
-      <PanelHeader />
+
 
       {/* <div className="w-full shadow-sm bg-white p-3 rounded-lg flex flex-col sm:flex-row items-center gap-2">
           <button className="border-2 w-48 rounded-lg flex items-center justify-center cursor-pointer border-gray-700 h-32 md:w-48">
