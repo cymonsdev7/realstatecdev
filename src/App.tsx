@@ -13,13 +13,13 @@ import { SobreNos } from "./pages/sobre";
 
 import { Category } from "./pages/categorias";
 import { Contato } from "./pages/contato";
-import { HousesPropertiesRegister } from "./pages/casas/HousesPropertiesRegister";
-import { BuildsPropertiesRegister } from "./pages/apartamentos/BuildsPropertiesRegister";
+import { HousesPropertiesRegister } from "./pages/casasregister/HousesPropertiesRegister";
+import { BuildsPropertiesRegister } from "./pages/apartamentosregister/BuildsPropertiesRegister";
 import { Houses } from "./pages/dashboard/houses";
 import { PageStart } from "./pages/paginainicial";
 import { DetalhesCasas } from "./pages/detalhescasas";
-import { PlacesPropertiesRegister } from "./pages/lotes/PlacesPropertiesRegister";
-import { FarmsPropertiesRegister } from "./pages/rurais/FarmPropertiesRegister";
+import { PlacesPropertiesRegister } from "./pages/lotesregister/PlacesPropertiesRegister";
+import { FarmsPropertiesRegister } from "./pages/ruraisregister/FarmPropertiesRegister";
 import { PropriedadesCasas } from "./pages/propriedadescasas/PropriedadesCasas";
 import { PropriedadesAptos } from "./pages/propriedadesapartamentos/PropriedadesAptos";
 import { DetalhesAptos } from "./pages/detalhesaptos";
@@ -113,19 +113,19 @@ const router = createBrowserRouter([
 
 
       {
-        path: 'casas',
+        path: 'casasregister',
         element: <Private><HousesPropertiesRegister/></Private>
       },
       {
-        path: 'apartamentos',
+        path: 'apartamentosregister',
         element: <Private><BuildsPropertiesRegister/></Private>
       },
       {
-        path: 'lotes',
+        path: 'lotesregister',
         element: <Private><PlacesPropertiesRegister/></Private>
       },
       {
-        path: 'rurais',
+        path: 'ruraisregister',
         element: <Private><FarmsPropertiesRegister/></Private>
       },
 

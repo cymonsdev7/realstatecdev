@@ -42,97 +42,238 @@ export default function DropDownUserSigned() {
     <>
 
     <header className="bg-white shadow-md z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
-          <Link to='/' className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img className="h-12 w-auto" src="https://firebasestorage.googleapis.com/v0/b/oneremax-3412d.appspot.com/o/images%2FremaxLOgo.png?alt=media&token=65beb01f-c413-4c7c-9d8c-ccc3e3e62cef&_gl=1*hh4sxh*_ga*OTc3NTQxNzI0LjE2OTIwMzYwNTE.*_ga_CW55HF8NVT*MTY5NzU3NzUyNS4xMDAuMS4xNjk3NTgwNzYzLjI5LjAuMA.." alt="" />
-          </Link>
-        </div>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-9 w-9 text-gray-700" aria-hidden="true" />
-          </button>
-        </div>
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
-        <NavLink to='/' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
-            Início
-          </NavLink>
-        <NavLink to='/dashboard' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
-            Dashboard
-          </NavLink>
-
-          <NavLink to='/dashboard/new' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
-            Imóveis
-          </NavLink>
-          <NavLink to='/bannersweb' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
-            Banners
-          </NavLink>
-          <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-md outline-none font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
-              Categorias
-              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-            </Popover.Button>
-
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-200"
-              enterFrom="opacity-0 translate-y-1"
-              enterTo="opacity-100 translate-y-0"
-              leave="transition ease-in duration-150"
-              leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 translate-y-1"
+    <nav
+          className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+          aria-label="Global"
+        >
+          <div className="flex lg:flex-1">
+            <Link to="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+              <img
+                className="h-12 w-auto"
+                src="https://firebasestorage.googleapis.com/v0/b/oneremax-3412d.appspot.com/o/images%2FremaxLOgo.png?alt=media&token=65beb01f-c413-4c7c-9d8c-ccc3e3e62cef&_gl=1*hh4sxh*_ga*OTc3NTQxNzI0LjE2OTIwMzYwNTE.*_ga_CW55HF8NVT*MTY5NzU3NzUyNS4xMDAuMS4xNjk3NTgwNzYzLjI5LjAuMA.."
+                alt=""
+              />
+            </Link>
+          </div>
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(true)}
             >
-              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl
-               bg-white shadow-lg ring-1 ring-gray-900/5">
-                <div className="p-4">
-                  {products.map((item) => (
-                    <div
-                      key={item.name}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-                    >
-                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-9 w-9 text-gray-700" aria-hidden="true" />
+            </button>
+          </div>
+
+          <Popover.Group className="hidden lg:flex lg:gap-x-12">
+            <NavLink
+              to="/"
+              className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
+            >
+              Início
+            </NavLink>
+            <NavLink
+              to="/sobre"
+              className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
+            >
+              Sobre
+            </NavLink>
+            <NavLink
+              to="/contato"
+              className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
+            >
+              Contato
+            </NavLink>
+
+            <Popover className="relative">
+              <Popover.Button className="flex items-center gap-x-1 text-md outline-none font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
+                Categorias
+                <ChevronDownIcon
+                  className="h-5 w-5 flex-none text-gray-400"
+                  aria-hidden="true"
+                />
+              </Popover.Button>
+
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-200"
+                enterFrom="opacity-0 translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition ease-in duration-150"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-1"
+              >
+                <Popover.Panel
+                  className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl
+                           bg-white shadow-lg ring-1 ring-gray-900/5"
+                >
+
+
+                  {/* TODOS OS IMOVEIS ROTA MENU */}
+                  <div className="p-1">
+                    <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
+                        <TfiMenuAlt size={23}/>
                       </div>
+
+
+
+
                       <div className="flex-auto">
-                        <a href={item.href} className="block font-semibold text-gray-900">
-                          {item.name}
+                        <NavLink
+                          to="/dashboard/new"
+                          className="block font-semibold text-gray-900"
+                        >
+                          Todos Registros
                           <span className="absolute inset-0" />
-                        </a>
-                        <p className="mt-1 text-gray-600">{item.description}</p>
+                        </NavLink>
+                        <p className="mt-1 text-gray-600">
+                          Veja a lista com todos imóveis RE/MAX
+                        </p>
                       </div>
                     </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                  {callsToAction.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                    >
-                      <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </Popover.Panel>
-            </Transition>
-          </Popover>
+                  </div>
 
 
-        </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <NavLink to='/login' className="flex items-center text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
-            Sair <span aria-hidden="true"><MdLogin size={25}/></span>
-          </NavLink>
-        </div>
-      </nav>
+
+                  {/* CASAS ROTA MENU */}
+                  <div className="p-1">
+                    <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
+                        <GiHouse size={23}/>
+                      </div>
+
+
+
+
+                      <div className="flex-auto">
+                        <NavLink
+                          to="/casasregister"
+                          className="block font-semibold text-gray-900"
+                        >
+                          Casas
+                          <span className="absolute inset-0" />
+                        </NavLink>
+                        <p className="mt-1 text-gray-600">
+                        Casas com os melhores preços do mercado
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  {/* APTOS ROTA MENU */}
+                  <div className="p-1">
+                    <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
+                        <BsBuildingUp size={23}/>
+                      </div>
+
+
+
+
+                      <div className="flex-auto">
+                        <NavLink
+                          to="/apartamentosregister"
+                          className="block font-semibold text-gray-900"
+                        >
+                          Apartamentos
+                          <span className="absolute inset-0" />
+                        </NavLink>
+                        <p className="mt-1 text-gray-600">
+                        Apartamentos com toda infraestrutura
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  {/* LOTES ROTA MENU */}
+                  <div className="p-1">
+                    <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
+                        <MdPlace size={23}/>
+                      </div>
+
+
+
+
+                      <div className="flex-auto">
+                        <NavLink
+                          to="/lotesregister"
+                          className="block font-semibold text-gray-900"
+                        >
+                          Lotes
+                          <span className="absolute inset-0" />
+                        </NavLink>
+                        <p className="mt-1 text-gray-600">
+                        Lotes prontos para construção
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* RURAIS ROTA MENU */}
+                  <div className="p-1">
+                    <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
+                        <GiTreehouse size={23} />
+                      </div>
+
+
+
+
+                      <div className="flex-auto">
+                        <NavLink
+                          to="/ruraisregister"
+                          className="block font-semibold text-gray-900"
+                        >
+                          Rurais
+                          <span className="absolute inset-0" />
+                        </NavLink>
+                        <p className="mt-1 text-gray-600">
+                        Chácaras e fazendas
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                    {callsToAction.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
+                      >
+                        <item.icon
+                          className="h-5 w-5 flex-none text-gray-400"
+                          aria-hidden="true"
+                        />
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </Popover.Panel>
+              </Transition>
+            </Popover>
+          </Popover.Group>
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <NavLink
+              to="/login"
+              className="flex items-center text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
+            >
+              Entrar{' '}
+              <span aria-hidden="true">
+                <MdLogin size={25} />
+              </span>
+            </NavLink>
+          </div>
+        </nav>
+
+
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-14 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
