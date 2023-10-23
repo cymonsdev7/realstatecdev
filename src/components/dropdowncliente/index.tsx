@@ -13,7 +13,7 @@ import {
 } from '@heroicons/react/20/solid'
 import { AuthContext } from '../../contexts/AuthContext'
 import { TopHeader } from '../topheader'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { GiHouse, GiTreehouse } from 'react-icons/gi'
 import { TfiMenuAlt } from 'react-icons/tfi'
 import { BsBuildingUp } from 'react-icons/bs'
@@ -103,24 +103,24 @@ export default function DropDownClient() {
           </div>
 
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
-            <Link
+            <NavLink
               to="/"
               className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
             >
               Início
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/sobre"
               className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
             >
               Sobre
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/contato"
               className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
             >
               Contato
-            </Link>
+            </NavLink>
 
             <Popover className="relative">
               <Popover.Button className="flex items-center gap-x-1 text-md outline-none font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
@@ -157,13 +157,13 @@ export default function DropDownClient() {
 
 
                       <div className="flex-auto">
-                        <Link
+                        <NavLink
                           to="/todosimoveis"
                           className="block font-semibold text-gray-900"
                         >
                           Todos os Imóveis
                           <span className="absolute inset-0" />
-                        </Link>
+                        </NavLink>
                         <p className="mt-1 text-gray-600">
                           Veja a lista com todos imóveis RE/MAX
                         </p>
@@ -184,13 +184,13 @@ export default function DropDownClient() {
 
 
                       <div className="flex-auto">
-                        <Link
+                        <NavLink
                           to="/propriedadescasas"
                           className="block font-semibold text-gray-900"
                         >
                           Casas
                           <span className="absolute inset-0" />
-                        </Link>
+                        </NavLink>
                         <p className="mt-1 text-gray-600">
                         Casas com os melhores preços do mercado
                         </p>
@@ -210,13 +210,13 @@ export default function DropDownClient() {
 
 
                       <div className="flex-auto">
-                        <Link
+                        <NavLink
                           to="/propriedadesapartamentos"
                           className="block font-semibold text-gray-900"
                         >
                           Apartamentos
                           <span className="absolute inset-0" />
-                        </Link>
+                        </NavLink>
                         <p className="mt-1 text-gray-600">
                         Apartamentos com toda infraestrutura
                         </p>
@@ -236,13 +236,13 @@ export default function DropDownClient() {
 
 
                       <div className="flex-auto">
-                        <Link
+                        <NavLink
                           to="/propriedadeslotes"
                           className="block font-semibold text-gray-900"
                         >
                           Lotes
                           <span className="absolute inset-0" />
-                        </Link>
+                        </NavLink>
                         <p className="mt-1 text-gray-600">
                         Lotes prontos para construção
                         </p>
@@ -261,13 +261,13 @@ export default function DropDownClient() {
 
 
                       <div className="flex-auto">
-                        <Link
+                        <NavLink
                           to="/propriedadesrurais"
                           className="block font-semibold text-gray-900"
                         >
                           Rurais
                           <span className="absolute inset-0" />
-                        </Link>
+                        </NavLink>
                         <p className="mt-1 text-gray-600">
                         Chácaras e fazendas
                         </p>
@@ -296,7 +296,7 @@ export default function DropDownClient() {
           </Popover.Group>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link
+            <NavLink
               to="/login"
               className="flex items-center text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
             >
@@ -304,7 +304,7 @@ export default function DropDownClient() {
               <span aria-hidden="true">
                 <MdLogin size={25} />
               </span>
-            </Link>
+            </NavLink>
           </div>
         </nav>
 
@@ -364,7 +364,7 @@ export default function DropDownClient() {
                         <Disclosure.Panel className="mt-2 space-y-2">
 
                            {/* TODOS OS IMOVEIS ROTA MENU */}
-                          <Link to="/todosimoveis">
+                          <NavLink to="/todosimoveis">
                             <Disclosure.Button
                               as="a"
                               className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
@@ -373,12 +373,12 @@ export default function DropDownClient() {
                             >
                               &rarr; Todos os Imóveis
                             </Disclosure.Button>
-                          </Link>
+                          </NavLink>
 
 
 
                           {/* CASAS ROTA MENU */}
-                          <Link to="/propriedadescasas">
+                          <NavLink to="/propriedadescasas">
                             <Disclosure.Button
                               as="a"
                               className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
@@ -387,12 +387,12 @@ export default function DropDownClient() {
                             >
                               &rarr; Casas
                             </Disclosure.Button>
-                          </Link>
+                          </NavLink>
 
 
 
                           {/* APTOS ROTA MENU */}
-                          <Link to="/propriedadesapartamentos">
+                          <NavLink to="/propriedadesapartamentos">
                             <Disclosure.Button
                               as="a"
                               className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
@@ -401,12 +401,12 @@ export default function DropDownClient() {
                             >
                               &rarr; Apartamentos
                             </Disclosure.Button>
-                          </Link>
+                          </NavLink>
 
 
 
                           {/* LOTES ROTA MENU */}
-                          <Link to="/propriedadeslotes">
+                          <NavLink to="/propriedadeslotes">
                             <Disclosure.Button
                               as="a"
                               className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
@@ -415,11 +415,11 @@ export default function DropDownClient() {
                             >
                               &rarr; Lotes
                             </Disclosure.Button>
-                          </Link>
+                          </NavLink>
 
 
                           {/* RURAIS ROTA MENU */}
-                          <Link to="/propriedadesrurais">
+                          <NavLink to="/propriedadesrurais">
                             <Disclosure.Button
                               as="a"
                               className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
@@ -428,7 +428,7 @@ export default function DropDownClient() {
                             >
                               &rarr; Rurais
                             </Disclosure.Button>
-                          </Link>
+                          </NavLink>
                         </Disclosure.Panel>
                       </>
                     )}
@@ -438,33 +438,33 @@ export default function DropDownClient() {
                   </Disclosure>
 
 
-                  <Link
+                  <NavLink
                     to="/"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
                      hover:bg-indigo-700 hover:text-white"
                   >
                     Página Inicial
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/sobre"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
                      hover:bg-indigo-700 hover:text-white"
                   >
                     Sobre Nós
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/contato"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
                      hover:bg-indigo-700 hover:text-white"
                   >
                     Contata-nos
-                  </Link>
+                  </NavLink>
                 </div>
 
                 <div className="py-6">
-                  <Link
+                  <NavLink
                     to="/login"
                     className="flex items-center -mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900
                      hover:bg-indigo-700 hover:text-white"
@@ -473,7 +473,7 @@ export default function DropDownClient() {
                     <span aria-hidden="true">
                       <MdLogin size={25} />
                     </span>
-                  </Link>
+                  </NavLink>
                 </div>
               </div>
             </div>

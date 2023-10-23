@@ -120,7 +120,7 @@ export const DetalhesCasas = () => {
             disableOnInteraction: false
           }}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper -z-10"
+          className="mySwiper mt-4"
         >
           {property?.images.map((image) => (
             <SwiperSlide
@@ -270,7 +270,7 @@ export const DetalhesCasas = () => {
               </div>
               <a
                 target="_blank"
-                href={`https://api.whatsapp.com/send?phone=${property?.whatsapp}&text=Olá vi esse ${property?.name} e estou interessado!`}
+                href={`https://wa.me/message/4VSYAUGPWXNVG1`}
                 className="cursor-pointer rounded-lg font-bold hover:bg-green-400
 
      bg-green-500 w-full text-white flex items-center justify-center

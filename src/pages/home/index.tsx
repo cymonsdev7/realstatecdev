@@ -27,6 +27,7 @@ import { BsBuildingUp, BsFillBuildingFill } from 'react-icons/bs'
 
 import { PiBuildingsFill } from 'react-icons/pi'
 import { boolean } from 'zod'
+import { MenuCategories } from '../../components/MenuCategories'
 
 interface PropertyProps {
   id: string
@@ -210,6 +211,8 @@ export function Home() {
           </select>
         </div> */}
 
+
+        <MenuCategories/>
         <main className="grid grid-cols-1 mt-16 gap-4 md:grid-cols-2 lg:grid-cols-3 mb-14">
           {property.map((propert) => (
             <Link
@@ -217,7 +220,8 @@ export function Home() {
               to={`/details/${propert.id}`}
               className="flex justify-center"
             >
-              <div className="max-w-sm bg-white px-7 pt-7 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500 -z-50">
+              <div className="max-w-sm bg-white px-7 pt-7 pb-2 rounded-xl shadow-lg transform hover:scale-105
+               transition duration-500">
                 <div className="relative">
                   <div
                     className="w-full h-52 rounded-lg bg-gray-100"

@@ -25,6 +25,7 @@ import 'swiper/css/scrollbar'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import { DropdownMenuCategory } from '../../components/DropdownMenuCategory'
 
 interface PropertiesProps {
   id: string
@@ -109,6 +110,9 @@ export const PropertyDetails = () => {
   }, [])
 
   return (
+    <>
+
+
     <Container>
       {property && (
         <Swiper
@@ -119,7 +123,7 @@ export const PropertyDetails = () => {
             disableOnInteraction: false
           }}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper -z-10"
+          className="mySwiper mt-4 bg-none"
         >
           {property?.images.map((image) => (
             <SwiperSlide
@@ -135,6 +139,17 @@ export const PropertyDetails = () => {
           ))}
         </Swiper>
       )}
+
+
+<div className="w-full items-center flex h-10 text-gray-500 rounded-lg font-medium px-4"></div>
+    <h1 className="text-center text-xl font-bold text-indigo-700">
+      <span className="text-gray-500">Escolha a Categoria</span> RE
+      <span className="font-bold text-red-600 relative -top-1">/</span>
+      MAX
+    </h1>
+    <div className="flex items-center justify-center w-full mb-8">
+      <DropdownMenuCategory />
+    </div>
 
       {property && (
         <div className="bg-white px-8 rounded-lg py-1 shadow-md mb-7">
@@ -269,7 +284,7 @@ export const PropertyDetails = () => {
               </div>
               <a
                 target="_blank"
-                href={`https://api.whatsapp.com/send?phone=${property?.whatsapp}&text=Olá vi esse ${property?.name} e estou interessado!`}
+                href={`https://wa.me/message/4VSYAUGPWXNVG1`}
                 className="cursor-pointer rounded-lg font-bold hover:bg-green-400
 
      bg-green-500 w-full text-white flex items-center justify-center
@@ -386,5 +401,6 @@ export const PropertyDetails = () => {
         // </main>
       )}
     </Container>
+    </>
   )
 }

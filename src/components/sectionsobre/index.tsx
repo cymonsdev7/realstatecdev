@@ -1,6 +1,10 @@
+import { DropdownMenuCategory } from "../DropdownMenuCategory"
+
 export const SectionSobreRemax = () => {
   return (
     <>
+
+
       <section className="bg-white dark:bg-white w-full">
         <div className="container px-6 py-28 mx-auto">
           <div className="lg:-mx-6 lg:flex lg:items-center">

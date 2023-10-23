@@ -139,7 +139,8 @@ export const FooterTwo = () => {
 
             <div className="flex items-center -mx-2">
               <a
-                href="#"
+                 href="https://wa.me/message/4VSYAUGPWXNVG1"
+                 target="_blank"
                 className="mx-2 text-indigo-600 transition-colors duration-700 hover:text-blue-500 dark:hover:text-blue-400"
                 aria-label="Reddit"
               >
@@ -147,7 +148,8 @@ export const FooterTwo = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.instagram.com/remax.consult_1?utm_source=qr&r=nametag"
+                target="_blank"
                 className="mx-2 text-indigo-600 transition-colors duration-700 hover:text-blue-500 dark:hover:text-blue-400"
                 aria-label="Facebook"
               >
@@ -155,7 +157,8 @@ export const FooterTwo = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.instagram.com/remax.consult_1?utm_source=qr&r=nametag"
+                target="_blank"
                 className="mx-2 text-indigo-600 transition-colors duration-700 hover:text-blue-500 dark:hover:text-blue-400"
                 aria-label="Github"
               >

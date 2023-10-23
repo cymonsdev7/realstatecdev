@@ -8,7 +8,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon } from '@heroicons/react/20/solid'
 import { AuthContext } from '../../contexts/AuthContext'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import {GiHouse, GiTreehouse} from 'react-icons/gi'
 import {BsBuildingUp} from 'react-icons/bs'
 import {MdLogin, MdPlace, MdOutlineLogout} from 'react-icons/md'
@@ -41,7 +41,7 @@ export default function DropDownUserSigned() {
   return (
     <>
 
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to='/' className="-m-1.5 p-1.5">
@@ -60,19 +60,19 @@ export default function DropDownUserSigned() {
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-        <Link to='/' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
+        <NavLink to='/' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
             Início
-          </Link>
-        <Link to='/dashboard' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
+          </NavLink>
+        <NavLink to='/dashboard' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
             Dashboard
-          </Link>
+          </NavLink>
 
-          <Link to='/dashboard/new' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
+          <NavLink to='/dashboard/new' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
             Imóveis
-          </Link>
-          <Link to='/bannersweb' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
+          </NavLink>
+          <NavLink to='/bannersweb' className="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
             Banners
-          </Link>
+          </NavLink>
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-md outline-none font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
               Categorias
@@ -128,9 +128,9 @@ export default function DropDownUserSigned() {
 
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to='/login' className="flex items-center text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
+          <NavLink to='/login' className="flex items-center text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
             Sair <span aria-hidden="true"><MdLogin size={25}/></span>
-          </Link>
+          </NavLink>
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -183,38 +183,38 @@ export default function DropDownUserSigned() {
                     </>
                   )}
                 </Disclosure>
-                <Link to='/'
+                <NavLink to='/'
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
                    hover:bg-indigo-700 hover:text-white"
                 >
                   Página Inicial
-                </Link>
-                <Link to='/dashboard'
+                </NavLink>
+                <NavLink to='/dashboard'
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
                    hover:bg-indigo-700 hover:text-white"
                 >
                   Dashboard
-                </Link>
-                <Link to='/dashboard/new'
+                </NavLink>
+                <NavLink to='/dashboard/new'
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
                    hover:bg-indigo-700 hover:text-white"
                 >
                   Imóveis
-                </Link>
-                <Link to='/bannersweb'
+                </NavLink>
+                <NavLink to='/bannersweb'
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
                    hover:bg-indigo-700 hover:text-white"
                 >
                   Banners
-                </Link>
+                </NavLink>
               </div>
               <div className="py-6">
-                <Link
+                <NavLink
                   to='/login'
                   className="flex items-center -mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-700 hover:text-white"
                 >
                   Sair da Conta <span aria-hidden="true"><MdLogin size={25}/></span>
-                </Link>
+                </NavLink>
               </div>
             </div>
           </div>

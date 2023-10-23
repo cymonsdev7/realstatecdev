@@ -27,6 +27,7 @@ import { BsBuildingUp, BsFillBuildingFill } from 'react-icons/bs'
 
 import { PiBuildingsFill } from 'react-icons/pi'
 import { boolean } from 'zod'
+import { DropdownMenuCategory } from '../../components/DropdownMenuCategory'
 
 interface PropertyProps {
   id: string
@@ -169,12 +170,20 @@ export function PropriedadesCasas() {
 
   return (
     <>
-      <div className="w-full"></div>
+        <div className="w-full items-center flex h-10 text-gray-500 rounded-lg font-medium px-4"></div>
+       <h1 className="text-center text-xl font-bold text-indigo-700 mt-14">
+        <span className="text-gray-500">Escolha a Categoria</span> RE
+        <span className="font-bold text-red-600 relative -top-1">/</span>
+        MAX
+      </h1>
+      <div className="flex items-center justify-center w-full">
+         <DropdownMenuCategory/>
+      </div>
 
       <Container>
         <div className="w-full items-center flex h-10 text-gray-500 rounded-lg font-medium gap-4 px-4 mb-4"></div>
 
-        <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
+        <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-2">
           <span className="text-gray-500">Casas</span> RE
           <span className="font-bold text-red-600 relative -top-1">/</span>
           MAX
@@ -187,7 +196,8 @@ export function PropriedadesCasas() {
               to={`/detalhescasas/${housess.id}`}
               className="flex justify-center"
             >
-              <div className="max-w-sm bg-white px-7 pt-7 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500 -z-50">
+              <div className="max-w-sm bg-white px-7 pt-7 pb-2 rounded-xl shadow-lg transform hover:scale-105
+               transition duration-500">
                 <div className="relative">
                   <div
                     className="w-full h-52 rounded-lg bg-gray-100"
@@ -208,11 +218,13 @@ export function PropriedadesCasas() {
                         : 'none'
                     }}
                   />
-                  <p className="absolute top-0 bg-indigo-700 text-white font-semibold py-1 px-3 rounded-br-lg rounded-tl-lg">
+                  <p className="absolute top-0 bg-indigo-700 text-white font-semibold py-1 px-3
+                   rounded-br-lg rounded-tl-lg">
                     {housess.price}
                   </p>
                   <button
-                    className="absolute hover:bg-indigo-700 hover:text-white transition duration-700 cursor-pointer top-0 right-0 bg-gray-100
+                    className="absolute hover:bg-indigo-700 hover:text-white transition duration-700
+                     cursor-pointer top-0 right-0 bg-gray-100
                           text-indigo-700 font-semibold py-1 px-3 rounded-tr-lg rounded-bl-lg"
                   >
                     Detalhes
