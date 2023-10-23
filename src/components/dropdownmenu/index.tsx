@@ -126,7 +126,7 @@ export default function DropDownUserSigned() {
                           to="/dashboard/new"
                           className="block font-semibold text-gray-900"
                         >
-                          Todos Registros
+                          Destaque Registros
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
@@ -153,7 +153,7 @@ export default function DropDownUserSigned() {
                           to="/casasregister"
                           className="block font-semibold text-gray-900"
                         >
-                          Casas
+                          Casas Register
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
@@ -179,7 +179,7 @@ export default function DropDownUserSigned() {
                           to="/apartamentosregister"
                           className="block font-semibold text-gray-900"
                         >
-                          Apartamentos
+                          Apartamentos Register
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
@@ -205,7 +205,7 @@ export default function DropDownUserSigned() {
                           to="/lotesregister"
                           className="block font-semibold text-gray-900"
                         >
-                          Lotes
+                          Lotes Register
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
@@ -230,7 +230,7 @@ export default function DropDownUserSigned() {
                           to="/ruraisregister"
                           className="block font-semibold text-gray-900"
                         >
-                          Rurais
+                          Rurais Register
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
@@ -265,7 +265,7 @@ export default function DropDownUserSigned() {
               to="/login"
               className="flex items-center text-md font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out"
             >
-              Entrar{' '}
+              Sair{' '}
               <span aria-hidden="true">
                 <MdLogin size={25} />
               </span>
@@ -274,93 +274,177 @@ export default function DropDownUserSigned() {
         </nav>
 
 
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-14 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://firebasestorage.googleapis.com/v0/b/oneremax-3412d.appspot.com/o/images%2FfuzCEeacNXPOaU9CZ1lkx8JVlJg2%2F45bb4743-78b5-4935-a129-895dd04fcd52?alt=media&token=4b1dfe3c-0ff7-4f97-bc03-5a647ea0c9a1"
-                alt=""
-              />
-            </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Fechar Menu</span>
-              <XMarkIcon className="h-8 w-8" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
-                  {({ open }) => (
-                    <>
-                      <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-700 hover:text-white">
-                        Categorias
-                        <ChevronDownIcon
-                          className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
-                          aria-hidden="true"
-                        />
-                      </Disclosure.Button>
-                      <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products, ...callsToAction].map((item) => (
-                          <Disclosure.Button
-                            key={item.name}
-                            as="a"
-                            href={item.href}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-red-600 hover:text-white"
-                          >
-                            &rarr;
-                            {item.name}
-                          </Disclosure.Button>
-                        ))}
-                      </Disclosure.Panel>
-                    </>
-                  )}
-                </Disclosure>
-                <NavLink to='/'
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
-                   hover:bg-indigo-700 hover:text-white"
-                >
-                  Página Inicial
-                </NavLink>
-                <NavLink to='/dashboard'
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
-                   hover:bg-indigo-700 hover:text-white"
-                >
-                  Dashboard
-                </NavLink>
-                <NavLink to='/dashboard/new'
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
-                   hover:bg-indigo-700 hover:text-white"
-                >
-                  Imóveis
-                </NavLink>
-                <NavLink to='/bannersweb'
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
-                   hover:bg-indigo-700 hover:text-white"
-                >
-                  Banners
-                </NavLink>
-              </div>
-              <div className="py-6">
-                <NavLink
-                  to='/login'
-                  className="flex items-center -mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-700 hover:text-white"
-                >
-                  Sair da Conta <span aria-hidden="true"><MdLogin size={25}/></span>
-                </NavLink>
+        <Dialog
+          as="div"
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
+          <div className="fixed inset-0 z-10" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <a href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+                <img
+                  className="h-8 w-auto"
+                  src="https://firebasestorage.googleapis.com/v0/b/oneremax-3412d.appspot.com/o/images%2FfuzCEeacNXPOaU9CZ1lkx8JVlJg2%2F45bb4743-78b5-4935-a129-895dd04fcd52?alt=media&token=4b1dfe3c-0ff7-4f97-bc03-5a647ea0c9a1"
+                  alt=""
+                />
+              </a>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-8 w-8" aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="mt-14 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+
+
+                  <Disclosure as="div" className="-mx-3">
+
+
+                    {({ open }) => (
+                      <>
+                        <Disclosure.Button
+                          className="flex w-full items-center justify-between rounded-lg
+                          py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900
+                         hover:bg-indigo-700
+                         hover:text-white"
+                        >
+                          Categorias
+                          <ChevronDownIcon
+                            className={classNames(
+                              open ? 'rotate-180' : '',
+                              'h-5 w-5 flex-none'
+                            )}
+                            aria-hidden="true"
+                          />
+
+                        </Disclosure.Button>
+                        <Disclosure.Panel className="mt-2 space-y-2">
+
+                           {/* TODOS OS IMOVEIS ROTA MENU */}
+                          <NavLink to="/dashboard/new">
+                            <Disclosure.Button
+                              as="a"
+                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
+                               text-gray-900
+                               hover:bg-red-600 hover:text-white"
+                            >
+                              &rarr; Todos Register
+                            </Disclosure.Button>
+                          </NavLink>
+
+
+
+                          {/* CASAS ROTA MENU */}
+                          <NavLink to="/casasregister">
+                            <Disclosure.Button
+                              as="a"
+                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
+                               text-gray-900
+                               hover:bg-red-600 hover:text-white"
+                            >
+                              &rarr; Casas Register
+                            </Disclosure.Button>
+                          </NavLink>
+
+
+
+                          {/* APTOS ROTA MENU */}
+                          <NavLink to="/apartamentosregister">
+                            <Disclosure.Button
+                              as="a"
+                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
+                               text-gray-900
+                               hover:bg-red-600 hover:text-white"
+                            >
+                              &rarr; Apartamentos Register
+                            </Disclosure.Button>
+                          </NavLink>
+
+
+
+                          {/* LOTES ROTA MENU */}
+                          <NavLink to="/lotesregister">
+                            <Disclosure.Button
+                              as="a"
+                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
+                               text-gray-900
+                               hover:bg-red-600 hover:text-white"
+                            >
+                              &rarr; Lotes Register
+                            </Disclosure.Button>
+                          </NavLink>
+
+
+                          {/* RURAIS ROTA MENU */}
+                          <NavLink to="/ruraisregister">
+                            <Disclosure.Button
+                              as="a"
+                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
+                               text-gray-900
+                               hover:bg-red-600 hover:text-white"
+                            >
+                              &rarr; Rurais Register
+                            </Disclosure.Button>
+                          </NavLink>
+                        </Disclosure.Panel>
+                      </>
+                    )}
+
+
+
+                  </Disclosure>
+
+
+                  <NavLink
+                    to="/"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
+                     hover:bg-indigo-700 hover:text-white"
+                  >
+                    Página Inicial
+                  </NavLink>
+
+                  <NavLink
+                    to="/sobre"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
+                     hover:bg-indigo-700 hover:text-white"
+                  >
+                    Sobre Nós
+                  </NavLink>
+
+                  <NavLink
+                    to="/contato"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900
+                     hover:bg-indigo-700 hover:text-white"
+                  >
+                    Contata-nos
+                  </NavLink>
+                </div>
+
+                <div className="py-6">
+                  <NavLink
+                    to="/login"
+                    className="flex items-center -mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900
+                     hover:bg-indigo-700 hover:text-white"
+                  >
+                    Entrar{' '}
+                    <span aria-hidden="true">
+                      <MdLogin size={25} />
+                    </span>
+                  </NavLink>
+                </div>
               </div>
             </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
+          </Dialog.Panel>
+        </Dialog>
     </header>
     </>
   )

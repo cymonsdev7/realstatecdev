@@ -161,7 +161,7 @@ export default function DropDownClient() {
                           to="/todosimoveis"
                           className="block font-semibold text-gray-900"
                         >
-                          Todos os Imóveis
+                          Todos Imóveis
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
@@ -371,7 +371,7 @@ export default function DropDownClient() {
                                text-gray-900
                                hover:bg-red-600 hover:text-white"
                             >
-                              &rarr; Todos os Imóveis
+                              &rarr; Todos Imóveis
                             </Disclosure.Button>
                           </NavLink>
 
