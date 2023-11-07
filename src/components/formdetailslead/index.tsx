@@ -9,7 +9,7 @@ import { z } from 'zod'
 
 const schema = z.object({
   emailContactPage: z.string().nonempty('O campo email é obrigatório'),
-  emailContactWhatsapp: z.string().nonempty('O campo Whatsapp é obrigatório')
+  whatsappContactWhatsapp: z.string().nonempty('O campo Whatsapp é obrigatório')
 })
 
 type FormData = z.infer<typeof schema>
@@ -27,7 +27,9 @@ export const FormDetailsLeads = () => {
 
   function onSubmitContactPage(data: FormData) {
     addDoc(collection(db, 'FormDetails'), {
-      emailContactPage: data.emailContactPage
+      emailContactPage: data.emailContactPage,
+      whatsappContactWhatsapp: data.whatsappContactWhatsapp
+
     })
       .then(() => {
         reset()
@@ -66,12 +68,12 @@ export const FormDetailsLeads = () => {
               />
             </div>
             <div className="mb-3">
-              <p className="mb-2 mt-2 font-bold">Email</p>
+              <p className="mb-2 mt-2 font-bold">Whatsapp</p>
               <Input
                 type="text"
                 register={register}
-                name="emailContactWhatsapp"
-                error={errors.emailContactWhatsapp?.message}
+                name="whatsappContactWhatsapp"
+                error={errors.whatsappContactWhatsapp?.message}
                 placeholder="Digite Seu Whatsapp..."
               />
             </div>
