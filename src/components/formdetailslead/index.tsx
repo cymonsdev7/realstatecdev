@@ -9,9 +9,7 @@ import { z } from 'zod'
 
 const schema = z.object({
   emailContactPage: z.string().nonempty('O campo email é obrigatório'),
-  whatsappContactWhatsapp: z.string().min(1, 'O campo Whatsapp é obrigatório').refine((value) => /ˆ(\d{10,12}$/.test(value),{
-    message: 'Número de whatsapp inválido.'
-  })
+  whatsappContactWhatsapp: z.string().nonempty('O campo Whatsapp é obrigatório')
 })
 
 type FormData = z.infer<typeof schema>
