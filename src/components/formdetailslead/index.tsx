@@ -33,7 +33,7 @@ export const FormDetailsLeads = () => {
     })
       .then(() => {
         reset()
-        toast.success('CADASTRADO COM SUCESSO!')
+        toast.success('ENVIADO COM SUCESSO!')
         console.log('CADASTRADO COM SUCESSO!')
       })
       .catch((error) => {
