@@ -78,7 +78,8 @@ export default function DropDownClient() {
     <>
       <header className="bg-white shadow-md sticky top-0 z-50">
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+          className="mx-auto flex max-w-7xl items-center justify-between
+           p-6 lg:px-8"
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
@@ -123,7 +124,11 @@ export default function DropDownClient() {
             </NavLink>
 
             <Popover className="relative">
-              <Popover.Button className="flex items-center gap-x-1 text-md outline-none font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250 delay-250 ease-in-out">
+              <Popover.Button
+                className="flex items-center gap-x-1 text-md outline-none
+               font-semibold leading-6 text-gray-900 hover:text-indigo-700 duration-250
+               delay-250 ease-in-out"
+              >
                 Categorias
                 <ChevronDownIcon
                   className="h-5 w-5 flex-none text-gray-400"
@@ -141,20 +146,17 @@ export default function DropDownClient() {
                 leaveTo="opacity-0 translate-y-1"
               >
                 <Popover.Panel
-                  className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl
+                  className="absolute -left-8 top-full z-10 mt-3
+
+                  w-screen max-w-md overflow-hidden rounded-3xl
                            bg-white shadow-lg ring-1 ring-gray-900/5"
                 >
-
-
                   {/* TODOS OS IMOVEIS ROTA MENU */}
                   <div className="p-1">
                     <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
-                        <TfiMenuAlt size={23}/>
+                        <TfiMenuAlt size={23} />
                       </div>
-
-
-
 
                       <div className="flex-auto">
                         <NavLink
@@ -171,17 +173,12 @@ export default function DropDownClient() {
                     </div>
                   </div>
 
-
-
                   {/* CASAS ROTA MENU */}
                   <div className="p-1">
                     <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
-                        <GiHouse size={23}/>
+                        <GiHouse size={23} />
                       </div>
-
-
-
 
                       <div className="flex-auto">
                         <NavLink
@@ -192,22 +189,18 @@ export default function DropDownClient() {
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
-                        Casas com os melhores preços do mercado
+                          Casas com os melhores preços do mercado
                         </p>
                       </div>
                     </div>
                   </div>
 
-
                   {/* APTOS ROTA MENU */}
                   <div className="p-1">
                     <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
-                        <BsBuildingUp size={23}/>
+                        <BsBuildingUp size={23} />
                       </div>
-
-
-
 
                       <div className="flex-auto">
                         <NavLink
@@ -218,22 +211,18 @@ export default function DropDownClient() {
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
-                        Apartamentos com toda infraestrutura
+                          Apartamentos com toda infraestrutura
                         </p>
                       </div>
                     </div>
                   </div>
 
-
                   {/* LOTES ROTA MENU */}
                   <div className="p-1">
                     <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-indigo-700 group-hover:text-white">
-                        <MdPlace size={23}/>
+                        <MdPlace size={23} />
                       </div>
-
-
-
 
                       <div className="flex-auto">
                         <NavLink
@@ -244,7 +233,7 @@ export default function DropDownClient() {
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
-                        Lotes prontos para construção
+                          Lotes prontos para construção
                         </p>
                       </div>
                     </div>
@@ -257,9 +246,6 @@ export default function DropDownClient() {
                         <GiTreehouse size={23} />
                       </div>
 
-
-
-
                       <div className="flex-auto">
                         <NavLink
                           to="/propriedadesrurais"
@@ -269,7 +255,7 @@ export default function DropDownClient() {
                           <span className="absolute inset-0" />
                         </NavLink>
                         <p className="mt-1 text-gray-600">
-                        Chácaras e fazendas
+                          Chácaras e fazendas
                         </p>
                       </div>
                     </div>
@@ -308,6 +294,9 @@ export default function DropDownClient() {
           </div>
         </nav>
 
+
+
+
         <Dialog
           as="div"
           className="lg:hidden"
@@ -315,7 +304,10 @@ export default function DropDownClient() {
           onClose={setMobileMenuOpen}
         >
           <div className="fixed inset-0 z-10" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full
+           overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1
+            sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
@@ -338,13 +330,10 @@ export default function DropDownClient() {
             <div className="mt-14 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-
-
                   <Disclosure as="div" className="-mx-3">
-
-
                     {({ open }) => (
                       <>
+
                         <Disclosure.Button
                           className="flex w-full items-center justify-between rounded-lg
                           py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900
@@ -359,23 +348,21 @@ export default function DropDownClient() {
                             )}
                             aria-hidden="true"
                           />
-
                         </Disclosure.Button>
-                        <Disclosure.Panel className="mt-2 space-y-2">
 
-                           {/* TODOS OS IMOVEIS ROTA MENU */}
+                        <Disclosure.Panel className="mt-2 space-y-2">
+                          {/* TODOS OS IMOVEIS ROTA MENU */}
                           <NavLink to="/todosimoveis">
                             <Disclosure.Button
                               as="a"
-                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7
+                              className="block rounded-lg py-2 pl-6
+                              pr-3 text-sm font-semibold leading-7
                                text-gray-900
                                hover:bg-red-600 hover:text-white"
                             >
                               &rarr; Todos Imóveis
                             </Disclosure.Button>
                           </NavLink>
-
-
 
                           {/* CASAS ROTA MENU */}
                           <NavLink to="/propriedadescasas">
@@ -389,8 +376,6 @@ export default function DropDownClient() {
                             </Disclosure.Button>
                           </NavLink>
 
-
-
                           {/* APTOS ROTA MENU */}
                           <NavLink to="/propriedadesapartamentos">
                             <Disclosure.Button
@@ -403,8 +388,6 @@ export default function DropDownClient() {
                             </Disclosure.Button>
                           </NavLink>
 
-
-
                           {/* LOTES ROTA MENU */}
                           <NavLink to="/propriedadeslotes">
                             <Disclosure.Button
@@ -416,7 +399,6 @@ export default function DropDownClient() {
                               &rarr; Lotes
                             </Disclosure.Button>
                           </NavLink>
-
 
                           {/* RURAIS ROTA MENU */}
                           <NavLink to="/propriedadesrurais">
@@ -432,11 +414,7 @@ export default function DropDownClient() {
                         </Disclosure.Panel>
                       </>
                     )}
-
-
-
                   </Disclosure>
-
 
                   <NavLink
                     to="/"
@@ -466,8 +444,10 @@ export default function DropDownClient() {
                 <div className="py-6">
                   <NavLink
                     to="/login"
-                    className="flex items-center -mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900
-                     hover:bg-indigo-700 hover:text-white"
+                    className="flex items-center -mx-3 rounded-lg
+                     px-3 py-2.5 text-base font-semibold leading-7
+                      text-gray-900 hover:bg-indigo-700
+                      hover:text-white"
                   >
                     Entrar{' '}
                     <span aria-hidden="true">
@@ -480,8 +460,7 @@ export default function DropDownClient() {
           </Dialog.Panel>
         </Dialog>
 
-        {!loadingAuth && signed && <></>}
-        {!loadingAuth && !signed && <></>}
+
       </header>
     </>
   )
