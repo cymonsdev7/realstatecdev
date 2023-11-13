@@ -8,6 +8,7 @@ import { TopHeader } from '../topheader'
 import { FiLogIn } from 'react-icons/fi'
 import DropDownClient from '../dropdowncliente'
 import DropDownUserSigned from '../dropdownmenu'
+import { TopHeaderTwo } from '../TopHeaderTwo'
 
 
 export const Header = () => {
@@ -15,7 +16,8 @@ export const Header = () => {
 
   return (
     <>
-      <TopHeader />
+        <TopHeader/>
+         <TopHeaderTwo/>
 
 
           {!loadingAuth && signed &&

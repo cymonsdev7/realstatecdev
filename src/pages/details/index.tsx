@@ -26,7 +26,9 @@ import 'swiper/css/scrollbar'
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import { DropdownMenuCategory } from '../../components/DropdownMenuCategory'
-import { FormDetailsLeads } from '../../components/formdetailslead'
+import { FormDetailsMailChimpLeads } from '../../components/formdetailslead'
+import { MailChimpForm } from '../../components/MailChimpForm'
+import { ArrowDownAnimate } from '../../svgs/ArrowDownAnimate'
 
 interface PropertiesProps {
   id: string
@@ -66,9 +68,9 @@ export const PropertyDetails = () => {
 
       const docRef = doc(db, 'property', id)
       getDoc(docRef).then((snapshot) => {
-        // if (!snapshot.data()) {
-        //   navigate('/')
-        // }
+        if (!snapshot.data()) {
+          navigate('/')
+        }
 
         setProperty({
           id: snapshot.id,
@@ -139,21 +141,17 @@ export const PropertyDetails = () => {
           </Swiper>
         )}
 
-        <div className="w-full items-center flex h-10 text-gray-500 rounded-lg font-medium px-4"></div>
-        <h1 className="text-center text-xl font-bold text-indigo-700">
-          <span className="text-gray-500">Escolha a Categoria</span> RE
-          <span className="font-bold text-red-600 relative -top-1">/</span>
-          MAX
-        </h1>
-        <div className="flex items-center justify-center w-full mb-8">
-          <DropdownMenuCategory />
-        </div>
+
 
         {property && (
           <div className="bg-white px-8 rounded-lg py-1 shadow-md mb-7">
             <div className="mt-6 border-t border-gray-100 p-4 mb-7">
-              <div className="">
-                <FormDetailsLeads />
+              <div className="flex justify-center relative top-14">
+                <ArrowDownAnimate />
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <FormDetailsMailChimpLeads />
               </div>
 
               <div className="divide-y divide-gray-300 mt-20">
@@ -165,7 +163,6 @@ export const PropertyDetails = () => {
                     Informações completas da propriedade
                   </p>
                 </div>
-
 
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                   <dt className="flex items-center gap-2 text-md font-bold leading-6 text-gray-900">
@@ -298,6 +295,12 @@ export const PropertyDetails = () => {
                   </span>
                   Falar com o corretor
                 </a>
+                <div className="flex justify-center relative top-14">
+                  <ArrowDownAnimate />
+                </div>
+                <div className="">
+                  <FormDetailsMailChimpLeads />
+                </div>
               </div>
             </div>
           </div>

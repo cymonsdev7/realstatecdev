@@ -28,6 +28,8 @@ import { BsBuildingUp, BsFillBuildingFill } from 'react-icons/bs'
 import { PiBuildingsFill } from 'react-icons/pi'
 import { boolean } from 'zod'
 import { MenuCategories } from '../../components/MenuCategories'
+import { FormDetailsMailChimpLeads } from '../../components/formdetailslead'
+import { ArrowDownAnimate } from '../../svgs/ArrowDownAnimate'
 
 interface PropertyProps {
   id: string
@@ -189,6 +191,16 @@ export function Home() {
         </div>
         <hr />
 
+        <div className='p-4 bg-white rounded-lg'>
+        <div className="flex justify-center relative top-14">
+                <ArrowDownAnimate />
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <FormDetailsMailChimpLeads />
+              </div>
+        </div>
+
         {/* <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
           <span className="text-gray-500">Todos Imóveis</span> RE
           <span className="font-bold text-red-600 relative -top-1">/</span>
@@ -310,6 +322,16 @@ export function Home() {
           ))}
         </main>
         <hr />
+
+        <div className='p-4 bg-white rounded-lg'>
+        <div className="flex justify-center relative top-14">
+                <ArrowDownAnimate />
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <FormDetailsMailChimpLeads />
+              </div>
+        </div>
 
 
         <SectionSobreRemax />

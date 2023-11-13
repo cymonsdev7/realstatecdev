@@ -29,6 +29,7 @@ import { PropriedadesRurais } from "./pages/propriedadesrurais/PropriedadesRurai
 import { DetalhesRurais } from "./pages/detalhesrurais";
 import { AllPropertiesRemax } from "./pages/todosimoveis";
 import { SlidersRegister } from "./pages/bannersweb";
+import { ThankYou } from "./pages/obrigado";
 
 
 
@@ -145,7 +146,12 @@ const router = createBrowserRouter([
         path: '/categorias',
         element: <Category/>
       },
+
     ]
+  },
+  {
+    path: '/obrigado',
+    element: <ThankYou/>
   },
   {
     path: '/login',

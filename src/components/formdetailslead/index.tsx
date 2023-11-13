@@ -1,20 +1,30 @@
-import { addDoc, collection } from 'firebase/firestore'
-import toast from 'react-hot-toast'
-import { register } from 'swiper/element'
-import { db } from '../../services/firebaseConnection'
-import { Input } from '../input'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { Container } from '../container'
+
 import { useForm } from 'react-hook-form'
+import { Input } from '../input'
 import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { addDoc, collection } from 'firebase/firestore'
+import { db } from '../../services/firebaseConnection'
+
+import { toast } from 'react-hot-toast'
+import { DropdownMenuCategory } from '../DropdownMenuCategory'
+import { useNavigate } from 'react-router-dom'
+
 
 const schema = z.object({
+  nameContactPage: z.string().nonempty('O campo primeiro nome é obrigatório'),
   emailContactPage: z.string().nonempty('O campo email é obrigatório'),
-  whatsappContactWhatsapp: z.string().nonempty('O campo Whatsapp é obrigatório')
+  whatsappContactPage: z
+    .string()
+    .min(11, 'O campo whatsapp é obrigatório')
+    .nonempty()
 })
 
 type FormData = z.infer<typeof schema>
 
-export const FormDetailsLeads = () => {
+export const FormDetailsMailChimpLeads = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -26,17 +36,19 @@ export const FormDetailsLeads = () => {
   })
 
   function onSubmitContactPage(data: FormData) {
-    addDoc(collection(db, 'FormDetails'), {
+    addDoc(collection(db, 'contact'), {
+      nameContactPage: data.nameContactPage,
       emailContactPage: data.emailContactPage,
-      whatsappContactWhatsapp: data.whatsappContactWhatsapp
-
+      whatsappContactPage: data.whatsappContactPage
     })
       .then(() => {
         reset()
-        toast.success('ENVIADO COM SUCESSO!')
+        navigate('/obrigado')
+        toast.success('CADASTRADO COM SUCESSO!')
         console.log('CADASTRADO COM SUCESSO!')
       })
       .catch((error) => {
+
         console.log(error)
         toast.error('ERRO AO CADASTRAR...')
         console.log('ERRO AS CADASTRAR NO BANCO!')
@@ -45,20 +57,36 @@ export const FormDetailsLeads = () => {
 
   return (
     <>
-      <div className="sm:col-span-2">
-        <div className="px-4 sm:px-0 mt-7">
-          <h3 className="text-3xl font-bold leading-7 text-indigo-800">
-            Preencha o Formulário:
-          </h3>
-          <p className="mt-1 max-w-2xl text-md leading-7 tracking-wider text-gray-700">
-            Para Que o Corretor Entre em Contato
-          </p>
-        </div>
 
-        <form onSubmit={handleSubmit(onSubmitContactPage)} className=" px-4">
-          <div className="grid md:grid-cols-2 items-center gap-4">
+
+      <h1 className="text-center text-4xl mb-14 font-bold text-indigo-700 mt-14">
+        <span className="text-gray-500">Preencha o </span>
+        Formulário
+      </h1>
+      <p
+
+       className='font-semibold text-gray-400 text-center -mt-14 mb-4 text-sm
+       '>Para que os corretores entrem em contato com você!</p>
+      <div
+        className="w-full bg-white mb-8 rounded-lg
+       flex flex-col items-center gap-2 mt-2"
+      >
+        <form className="w-full" onSubmit={handleSubmit(onSubmitContactPage)}>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 items-center gap-4">
+
             <div className="mb-3">
-              <p className="mb-2 mt-2 font-bold">Email</p>
+              <p className="mb-2 font-bold">Primeiro Nome</p>
+              <Input
+                type="text"
+                register={register}
+                name="nameContactPage"
+                error={errors.nameContactPage?.message}
+                placeholder="Digite Seu Primeiro Nome..."
+              />
+            </div>
+
+            <div className="mb-3">
+              <p className="mb-2 font-bold">Email</p>
               <Input
                 type="email"
                 register={register}
@@ -68,23 +96,24 @@ export const FormDetailsLeads = () => {
               />
             </div>
             <div className="mb-3">
-              <p className="mb-2 mt-2 font-bold">Whatsapp</p>
+              <p className="mb-2 font-bold">DDD+Whatsapp</p>
               <Input
                 type="text"
                 register={register}
-                name="whatsappContactWhatsapp"
-                error={errors.whatsappContactWhatsapp?.message}
-                placeholder="Digite Seu Whatsapp..."
+                name="whatsappContactPage"
+                error={errors.whatsappContactPage?.message}
+                placeholder="Ex: → 34993552222..."
               />
             </div>
           </div>
 
           <button
-            type="submit"
-            className="w-full h-12 mt-3 rounded-lg bg-indigo-700 text-white
-                  font-bold hover:bg-indigo-500"
+
+            type='submit'
+            className="w-full h-12 rounded-lg bg-indigo-700 text-white
+             font-bold hover:bg-indigo-500"
           >
-            Entrar em Contato
+            Enviar Dados
           </button>
         </form>
       </div>

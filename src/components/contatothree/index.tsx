@@ -9,6 +9,7 @@ import { db } from '../../services/firebaseConnection'
 
 import { toast } from 'react-hot-toast'
 import { DropdownMenuCategory } from '../DropdownMenuCategory'
+import { redirect } from 'react-router-dom'
 
 const schema = z.object({
   nameContactPage: z.string().nonempty('O campo primeiro nome é obrigatório'),
@@ -46,6 +47,7 @@ export const ContactThree = () => {
     })
       .then(() => {
         reset()
+        redirect('/obrigado')
         toast.success('CADASTRADO COM SUCESSO!')
         console.log('CADASTRADO COM SUCESSO!')
       })

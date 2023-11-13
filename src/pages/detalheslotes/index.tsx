@@ -26,6 +26,8 @@ import 'swiper/css/scrollbar'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import {  FormDetailsMailChimpLeads } from '../../components/formdetailslead'
+import { ArrowDownAnimate } from '../../svgs/ArrowDownAnimate'
 
 interface PropertiesProps {
   id: string
@@ -65,9 +67,9 @@ export const DetalhesLotes = () => {
 
       const docRef = doc(db, 'lotes', id)
       getDoc(docRef).then((snapshot) => {
-        // if (!snapshot.data()) {
-        //   navigate('/')
-        // }
+        if (!snapshot.data()) {
+          navigate('/')
+        }
 
         setProperty({
           id: snapshot.id,
@@ -140,6 +142,14 @@ export const DetalhesLotes = () => {
       {property && (
         <div className="bg-white px-8 rounded-lg py-1 shadow-md mb-7">
           <div className="px-4 sm:px-0 mt-7">
+
+          <div className="flex justify-center relative top-14">
+                <ArrowDownAnimate />
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <FormDetailsMailChimpLeads />
+              </div>
             <h3 className="text-3xl font-bold leading-7 text-indigo-800">
               Página de Detalhes
             </h3>
@@ -281,6 +291,15 @@ export const DetalhesLotes = () => {
                 </span>
                 Falar com o corretor
               </a>
+
+              <div className="flex justify-center relative top-14">
+                <ArrowDownAnimate />
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <FormDetailsMailChimpLeads />
+              </div>
+
             </dl>
           </div>
         </div>

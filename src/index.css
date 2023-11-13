@@ -83,6 +83,9 @@ body{
    .mySwiper2{
       display: none;
    }
+   .top_header{
+    display: none;
+   }
 }
 @media (min-width: 568px){
    .mySwiperMobile{
@@ -106,9 +109,14 @@ body{
    .header_principal_user{
     display: none;
    }
-   .top_header{
+
+
+}
+@media (max-width: 1025px){
+  .top-header-two{
     display: none;
    }
+
 }
 
 

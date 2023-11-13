@@ -26,6 +26,9 @@ import 'swiper/css/scrollbar'
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import {  FormDetailsMailChimpLeads } from '../../components/formdetailslead'
+import { ArrowDownAnimate } from '../../svgs/ArrowDownAnimate'
+import { DropdownMenuCategory } from '../../components/DropdownMenuCategory'
 
 interface PropertiesProps {
   id: string
@@ -65,9 +68,9 @@ export const DetalhesCasas = () => {
 
       const docRef = doc(db, 'houses', id)
       getDoc(docRef).then((snapshot) => {
-        // if (!snapshot.data()) {
-        //   navigate('/')
-        // }
+        if (!snapshot.data()) {
+          navigate('/')
+        }
 
         setProperty({
           id: snapshot.id,
@@ -110,6 +113,9 @@ export const DetalhesCasas = () => {
   }, [])
 
   return (
+   <>
+
+
     <Container>
       {property && (
         <Swiper
@@ -137,9 +143,17 @@ export const DetalhesCasas = () => {
         </Swiper>
       )}
 
+
       {property && (
         <div className="bg-white px-8 rounded-lg py-1 shadow-md mb-7">
           <div className="px-4 sm:px-0 mt-7">
+
+              <div className="flex justify-center relative top-14">
+                <ArrowDownAnimate />
+              </div>
+              <div className="">
+                <FormDetailsMailChimpLeads />
+              </div>
             <h3 className="text-3xl font-bold leading-7 text-indigo-800">
               Página de Detalhes
             </h3>
@@ -281,111 +295,20 @@ export const DetalhesCasas = () => {
                 </span>
                 Falar com o corretor
               </a>
+
+
+              <div className="flex justify-center relative top-14">
+                <ArrowDownAnimate />
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <FormDetailsMailChimpLeads />
+              </div>
             </dl>
           </div>
         </div>
-
-        // <main className="w-full bg-white rounded-lg p-7 my-4 shadow-sm">
-        //       <div className="flex flex-col sm:flex-row mb-4 items-center justify-between">
-        //           <h1 className="font-bold text-3xl text-gray-700">{property.name}</h1>
-        //           <h1 className="font-bold text-3xl text-indigo-500">{property.price}</h1>
-        //       </div>
-        //      <div className="border-2 border-indigo-200"></div>
-
-        //      <div className="w-full bg-white rounded-lg p-7 my-4 shadow-sm">
-
-        //       {/* INÍCIO DIV CARDS-MINI */}
-        //       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-
-        //          {/* ENDEREÇO DIV */}
-        //         <div className="flex flex-col gap-4 items-center justify-between bg-indigo-200 p-4 rounded-lg">
-        //           <div className="bg-gray-100 w-full text-center rounded-md p-1 flex flex-col">
-        //             <p className="font-bold text-gray-500">Endereço</p>
-        //           </div>
-        //           <div className="flex gap-2 items-center">
-        //               <MdPlace size={25} color='#3d42c1'/>
-        //                <p>{property.adress}</p>
-        //           </div>
-        //         </div>
-
-        //         {/* AREA DIV */}
-        //         <div className="flex flex-col gap-4 items-center justify-between bg-indigo-200 p-4 rounded-lg">
-        //           <div className="bg-gray-100 w-full text-center rounded-md p-1 flex flex-col">
-        //             <p className="font-bold text-gray-500">Área</p>
-        //           </div>
-        //           <div className="flex gap-2 items-center">
-        //           <FaChartArea size={25} color='#3d42c1'/>
-        //               <p>{property.area}</p>
-        //           </div>
-        //         </div>
-
-        //          {/* BEDROOMS DIV */}
-        //         <div className="flex flex-col gap-4 items-center justify-between
-        //            bg-indigo-200 p-4 rounded-lg">
-        //            <div className="bg-gray-100 w-full text-center rounded-md p-1 flex flex-col">
-        //              <p className="font-bold text-gray-500">Dormitórios</p>
-        //            </div>
-        //            <div className="flex gap-2 items-center">
-        //               <FaBed size={28} color='#3d42c1'/>
-        //               <p>{property.bedrooms}</p>
-        //            </div>
-        //         </div>
-
-        //         {/* BATHROOMS DIV */}
-        //         <div className="flex flex-col gap-4 items-center justify-between
-        //            bg-indigo-200 p-4 rounded-lg">
-        //            <div className="bg-gray-100 w-full text-center rounded-md p-1 flex flex-col">
-        //              <p className="font-bold text-gray-500">Banheiros</p>
-        //            </div>
-        //            <div className="flex gap-2 items-center">
-        //               <FaBed size={28} color='#3d42c1'/>
-        //               <p>{property.bathrooms}</p>
-        //            </div>
-        //         </div>
-
-        //         {/* BATHROOMS DIV */}
-        //         <div className="flex flex-col gap-4 items-center justify-between
-        //            bg-indigo-200 p-4 rounded-lg">
-        //            <div className="bg-gray-100 w-full text-center rounded-md p-1 flex flex-col">
-        //              <p className="font-bold text-gray-500">Cozinhas</p>
-        //            </div>
-        //            <div className="flex gap-2 items-center">
-        //               <FaBed size={28} color='#3d42c1'/>
-        //               <p>{property.cookrooms}</p>
-        //            </div>
-        //         </div>
-
-        //         {/* BATHROOMS DIV */}
-        //         <div className="flex flex-col gap-4 items-center justify-between
-        //            bg-indigo-200 p-4 rounded-lg">
-        //            <div className="bg-gray-100 w-full text-center rounded-md p-1 flex flex-col">
-        //              <p className="font-bold text-gray-500">Garagens</p>
-        //            </div>
-        //            <div className="flex gap-2 items-center">
-        //               <FaBed size={28} color='#3d42c1'/>
-        //               <p>{property.garages}</p>
-        //            </div>
-        //         </div>
-
-        //         {/* FECHAMENTO DIV CARDS-MINI */}
-        //       </div>
-        //         {/* INICIO SEÇÃO DESCRIÇÃO */}
-        //         <div className="w-full p-4 bg-indigo-200 mt-4 rounded-lg">
-        //         <div className="flex flex-col gap-4 items-center justify-between
-        //            bg-indigo-200 p-4 rounded-lg">
-        //            <div className="bg-gray-100 w-full text-center rounded-md p-1 flex flex-col">
-        //              <p className="font-bold text-gray-500">Descrição</p>
-        //            </div>
-        //            <div className="flex gap-2 items-center">
-
-        //               <p>{property.description}</p>
-        //            </div>
-        //         </div>
-        //         </div>
-
-        //      </div>
-        // </main>
       )}
     </Container>
+    </>
   )
 }

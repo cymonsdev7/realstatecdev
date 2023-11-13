@@ -11,17 +11,17 @@ export const TopHeader = () => {
         justify-center gap-2 top_header"
       >
         <div className="flex items-center justify-center gap-2 w-full relative left-14">
-          <h3 className="font-bold text-lg text-gray-50">
+          <h3 className="font-bold text-md text-gray-100">
             <span className="relative -top-[0.1rem]">Seja Um Corretor </span>
-            <span className="uppercase text-2xl">Re/Max</span>
+            <span className="uppercase text-xl">Re/Max</span>
           </h3>
           <Link to="/contato">
             <button
               className="bg-indigo-700 hover:bg-indigo-500 transition
             duration-700 text-white font-bold
-             px-4 py-1 rounded-md uppercase"
+             px-3 py-1 rounded-md uppercase text-sm"
             >
-              Começar a Vender
+              Começar
             </button>
           </Link>
         </div>
