@@ -78,10 +78,10 @@ export const SlidersRegister = () => {
   }
 
   function onSubmit(data: FormData) {
-    // if(propertyImages.length === 0){
-    //   alert('Carregue alguma imagem!')
-    //   return
-    // }
+    if(propertyImages.length === 0){
+      alert('Carregue alguma imagem!')
+      return
+    }
 
     const propertyListImages = propertyImages.map((slidersImg) => {
       return {

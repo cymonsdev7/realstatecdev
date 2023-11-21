@@ -30,6 +30,8 @@ import { DetalhesRurais } from "./pages/detalhesrurais";
 import { AllPropertiesRemax } from "./pages/todosimoveis";
 import { SlidersRegister } from "./pages/bannersweb";
 import { ThankYou } from "./pages/obrigado";
+import { PropertySell } from "./pages/propriedadeavenda";
+
 
 
 
@@ -64,6 +66,9 @@ const router = createBrowserRouter([
         path: '/propriedadesrurais',
         element: <PropriedadesRurais/>
       },
+
+
+
 
 
 
@@ -160,7 +165,13 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register/>
-  }
+  },
+  {
+    path: '/propriedadeavenda',
+    element: <PropertySell/>
+  },
+
+
 ])
 
 export {router}
